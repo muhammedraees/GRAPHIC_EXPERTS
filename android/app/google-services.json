@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "95072235947",
+    "project_id": "graphic-experts-4439d",
+    "storage_bucket": "graphic-experts-4439d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:95072235947:android:f3fde1f95439cd522822ee",
+        "android_client_info": {
+          "package_name": "com.example.graphic_experts"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuxL7nR1I99GUIM7Ui6j1ZL9l9ES26mPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
