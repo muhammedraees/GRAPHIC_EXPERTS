@@ -88,11 +88,16 @@ import 'package:flutter/material.dart';
 import '../auth_steps/user_auth/presentation/pages/login_page.dart';
 import 'signup.dart';
 
+// class UserTypeSelectionPage extends StatefulWidget {
+//   @override
+//   _UserTypeSelectionPageState createState() => _UserTypeSelectionPageState();
+// }
+
+
 class UserTypeSelectionPage extends StatefulWidget {
   @override
   _UserTypeSelectionPageState createState() => _UserTypeSelectionPageState();
 }
-
 class _UserTypeSelectionPageState extends State<UserTypeSelectionPage> {
   bool isLoggedIn = false; 
 

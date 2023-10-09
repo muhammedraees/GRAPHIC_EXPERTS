@@ -6,6 +6,13 @@ import 'package:intro_slider/intro_slider.dart';
 import 'select_user.dart';
 // import 'signup.dart';
 
+// class OnboardingPage extends StatefulWidget {
+//   const OnboardingPage({Key? key, required LoginPage child}) : super(key: key);
+
+//   @override
+//   _OnboardingPageState createState() => _OnboardingPageState();
+// }
+
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({Key? key, required LoginPage child}) : super(key: key);
 

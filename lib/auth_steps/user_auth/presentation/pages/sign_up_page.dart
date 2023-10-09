@@ -147,13 +147,18 @@ import '../../firebase_auth_implementation/firebase_auth_services.dart';
 import '../widgets/form_container_widget.dart';
 import 'login_page.dart';
 
+// class SignUpPage extends StatefulWidget {
+//   const SignUpPage(String userType, {Key? key});
+
+//   @override
+//   State<SignUpPage> createState() => _SignUpPageState();
+// }
+
+
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key});
-
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
-
 class _SignUpPageState extends State<SignUpPage> {
   final FirebaseAuthService _auth = FirebaseAuthService();
 
@@ -239,7 +244,7 @@ class _SignUpPageState extends State<SignUpPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account?"),
+                  Text("Already have an account?",style: TextStyle(color: Colors.grey),),
                   SizedBox(
                     width: 5,
                   ),

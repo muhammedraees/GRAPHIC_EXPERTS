@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:graphic_experts/screens/onboarding.dart';
 
 // import '../freelancer/profile_details.dart';
+import '../freelancer/profile_details.dart';
 import '../freelancer/profile_editing.dart';
 import '../freelancer/profile_save.dart';
 import '../freelancer/profile_test.dart';
@@ -70,12 +72,11 @@ class SettingsPage extends StatelessWidget {
                 color: Colors.white, 
               ),),
             onTap: () {
-          
-              Navigator.push(
+          Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => ProfileEditingPage()),
+                MaterialPageRoute(builder: (context) => ProfileEdit()),
               );
+              
             },
           ),
           ListTile(
@@ -87,10 +88,12 @@ class SettingsPage extends StatelessWidget {
               ),),
             onTap: () {
               
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeScreen()),
-              );
+              
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //       builder: (context) => OnboardingPage()),
+              // );
             },
           ),
           ListTile(
@@ -104,7 +107,7 @@ class SettingsPage extends StatelessWidget {
              
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AboutPage()),
+                MaterialPageRoute(builder: (context) => ProfileDetailsPage()),
               );
             },
           ),

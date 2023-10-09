@@ -59,6 +59,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../client/client_botton_nav.dart';
 import 'client_home_page.dart';
 import 'freelancerbottomvav.dart';
 import 'signup.dart';
@@ -113,7 +114,7 @@ class LoginPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ClientHomePage(),
+                            builder: (context) => ClientBottomNav(),
                           ),
                         );
                       } else if (userType == 'Freelancer') {

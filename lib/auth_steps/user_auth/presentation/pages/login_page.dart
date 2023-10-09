@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import '../widgets/form_container_widget.dart';
 import 'sign_up_page.dart';
 
+// class LoginPage extends StatefulWidget {
+//   const LoginPage({Key? key, required LoginPage child});
+//   @override
+//   State<LoginPage> createState() => _LoginPageState();
+// }
+
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key});
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
