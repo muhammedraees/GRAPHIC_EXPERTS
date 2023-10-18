@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 
 class SendOrUpdateData extends StatefulWidget {
@@ -67,6 +67,60 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
     skillsController.dispose();
     linkController.dispose();
     super.dispose();
+  }
+
+  Future<void> _uploadImage() async {
+    if (_image != null) {
+      try {
+        final firebaseStorageRef =
+            FirebaseStorage.instance.ref().child('profile_images/${widget.id}.jpg');
+
+        await firebaseStorageRef.putFile(_image!);
+
+        final imageUrl = await firebaseStorageRef.getDownloadURL();
+
+        final dUser = FirebaseFirestore.instance
+            .collection('users')
+            .doc(widget.id.isNotEmpty ? widget.id : null);
+
+        // Now, you can use imageUrl to store the image URL in Firestore.
+        final jsonData = {
+          'username': usernameController.text,
+          'jobType': jobTypeController.text,
+          'experience': experienceController.text,
+          'skills': skillsController.text,
+          'link': linkController.text,
+          'profile': imageUrl,
+          'id': widget.id // Use the appropriate docID here
+        };
+
+        showProgressIndicator = true;
+
+        if (widget.id.isEmpty) {
+          await dUser.set(jsonData).then((value) {
+            usernameController.text = '';
+            jobTypeController.text = '';
+            experienceController.text = '';
+            skillsController.text = '';
+            linkController.text = '';
+            showProgressIndicator = false;
+            setState(() {});
+          });
+        } else {
+          await dUser.update(jsonData).then((value) {
+            usernameController.text = '';
+            jobTypeController.text = '';
+            experienceController.text = '';
+            skillsController.text = '';
+            linkController.text = '';
+            showProgressIndicator = false;
+            setState(() {});
+          });
+        }
+      } catch (e) {
+        print('Error uploading image: $e');
+      }
+    }
   }
 
   @override
@@ -208,46 +262,7 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
                           SnackBar(content: Text('Fill in all fields')),
                         );
                       } else {
-                        final dUser = FirebaseFirestore.instance
-                            .collection('users')
-                            .doc(widget.id.isNotEmpty ? widget.id : null);
-                        String docID = '';
-                        if (widget.id.isNotEmpty) {
-                          docID = widget.id;
-                        } else {
-                          docID = dUser.id;
-                        }
-                        final jsonData = {
-                          'username': usernameController.text,
-                          'jobType': jobTypeController.text,
-                          'experience': experienceController.text,
-                          'skills': skillsController.text,
-                          'link': linkController.text,
-                          'profile': _image.toString(),
-                          'id': docID
-                        };
-                        showProgressIndicator = true;
-                        if (widget.id.isEmpty) {
-                          await dUser.set(jsonData).then((value) {
-                            usernameController.text = '';
-                            jobTypeController.text = '';
-                            experienceController.text = '';
-                            skillsController.text = '';
-                            linkController.text = '';
-                            showProgressIndicator = false;
-                            setState(() {});
-                          });
-                        } else {
-                          await dUser.update(jsonData).then((value) {
-                            usernameController.text = '';
-                            jobTypeController.text = '';
-                            experienceController.text = '';
-                            skillsController.text = '';
-                            linkController.text = '';
-                            showProgressIndicator = false;
-                            setState(() {});
-                          });
-                        }
+                        await _uploadImage(); // Upload image before updating Firestore
                       }
                     },
                     child: Text(
@@ -263,6 +278,9 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
     );
   }
 }
+
+
+
 
 
 

@@ -6,7 +6,7 @@ import 'package:graphic_experts/screens/onboarding.dart';
 import '../freelancer/profile_details.dart';
 import '../freelancer/profile_editing.dart';
 import '../freelancer/profile_save.dart';
-import '../freelancer/profile_test.dart';
+import '../freelancer/profile_create.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -118,15 +118,60 @@ class SettingsPage extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
               ),),
-            onTap: () {
+            // onTap: () {
         
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => LogOut()),
-              // );
+            //   // Navigator.push(
+            //   //   context,
+            //   //   MaterialPageRoute(builder: (context) => LogOut()),
+            //   // );
+            //   FirebaseAuth.instance.signOut();
+            //   Navigator.pushNamed(context, "/login");
+            // },
+onTap: () {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Color.fromARGB(255, 32, 32, 31), // Set the dialog background color to grey
+        title: Text(
+          "Confirm Logout",
+          style: TextStyle(color: Colors.white), // Set the text color to white
+        ),
+        content: Text(
+          "Are you sure you want to log out ?",
+          style: TextStyle(color: Colors.white), // Set the text color to white
+        ),
+        actions: <Widget>[
+          TextButton(
+            style: TextButton.styleFrom(
+              // backgroundColor: Colors.white, // Set the button background color to white
+            ),
+            child: Text(
+              "Cancel",
+              style: TextStyle(color: Colors.grey), // Set the button text color to grey
+            ),
+            onPressed: () {
+              Navigator.of(context).pop(); // Close the dialog
+            },
+          ),
+          TextButton(
+            style: TextButton.styleFrom(
+              // backgroundColor: Colors.white, // Set the button background color to white
+            ),
+            child: Text(
+              "Yes",
+              style: TextStyle(color: Color(0xFFFE5B2A)), // Set the button text color to grey
+            ),
+            onPressed: () {
               FirebaseAuth.instance.signOut();
               Navigator.pushNamed(context, "/login");
             },
+          ),
+        ],
+      );
+    },
+  );
+},
           ),
         ],
       ),

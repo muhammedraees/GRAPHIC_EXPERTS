@@ -41,7 +41,6 @@ import 'package:graphic_experts/auth_steps/splash_screen/splash_screen.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'auth_steps/user_auth/presentation/pages/login_page.dart';
 import 'auth_steps/user_auth/presentation/pages/sign_up_page.dart';
-import 'client/client_botton_nav.dart';
 import 'my_tests/navigator.dart';
 import 'screens/freelancerbottomvav.dart';
 import 'screens/onboarding.dart';
@@ -77,9 +76,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routes: {
-        '/': (context) => ClientBottomNav(
+        '/': (context) => OnboardingPage(
               // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
-              // child: LoginPage(),
+              child: LoginPage(),
             ),
         '/login': (context) => LoginPage(),
         '/signUp': (context) => SignUpPage(),
