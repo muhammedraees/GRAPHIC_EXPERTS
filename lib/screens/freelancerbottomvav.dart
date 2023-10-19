@@ -18,20 +18,20 @@ class _FreelancerBottomNavState extends State<FreelancerBottomNav> {
     HomePage(),
     SearchPage(),
     ChatListPage(),
-    SettingsPage(),
+    const SettingsPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: null,
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(14),
+        margin: const EdgeInsets.all(14),
         height: 80.0,
         decoration: BoxDecoration(
-          color: Color(0xFFFE5B2A),
+          color: const Color(0xFFFE5B2A),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Row(
@@ -83,7 +83,7 @@ class _FreelancerBottomNavState extends State<FreelancerBottomNav> {
 class FreelancerHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Freelancer Home Screen"),
     );
   }
@@ -92,7 +92,7 @@ class FreelancerHomeScreen extends StatelessWidget {
 class FreelancerSearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Freelancer Search Screen"),
     );
   }
@@ -101,7 +101,7 @@ class FreelancerSearchScreen extends StatelessWidget {
 class FreelancerChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Freelancer Chats Screen"),
     );
   }

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
@@ -50,12 +50,12 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Home',
           style: TextStyle(fontWeight: FontWeight.w300),
         ),
@@ -74,7 +74,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                 }
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
@@ -90,46 +90,46 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                 return ListView.separated(
                   itemCount: _posts.length,
                   separatorBuilder: (context, index) {
-                    return SizedBox(
+                    return const SizedBox(
                       height: 1,
                     ); // No separator
                   },
                   itemBuilder: (context, index) {
                     final post = _posts[index];
                     return Card(
-                      color: Color.fromARGB(255, 32, 32, 31),
-                      margin: EdgeInsets.all(8.0),
+                      color: const Color.fromARGB(255, 32, 32, 31),
+                      margin: const EdgeInsets.all(8.0),
                       child: ListTile(
                         title: Text(
                           post.title,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white, // Set the text color to white
                           ),
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               post.text,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color:
                                     Colors.white, // Set the text color to white
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             if (post.imageUrl.isNotEmpty)
                               Image.network(post.imageUrl),
                             // Display the image using its URL
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               'Posted on: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(post.timestamp.toLocal())}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 12,
                                 color: Colors.grey,
                               ),
                             ),
-                            SizedBox(height: 30),
+                            const SizedBox(height: 30),
                           ],
                         ),
                       ),
@@ -142,7 +142,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Color(0xFFFE5B2A),
+        backgroundColor: const Color(0xFFFE5B2A),
         onPressed: () {
           Navigator.push(
             context,
@@ -161,7 +161,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
             }
           });
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -225,33 +225,33 @@ class _CreatePostPageState extends State<CreatePostPage> {
           children: [
             TextField(
               controller: _titleController,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
+              style: const TextStyle(color: Colors.white),
+              decoration: const InputDecoration(
                 hintText: 'Caption',
                 border: InputBorder.none,
                 hintStyle: TextStyle(color: Colors.grey),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               controller: _textController,
-              style: TextStyle(color: Colors.white),
-              decoration: InputDecoration(
+              style: const TextStyle(color: Colors.white),
+              decoration: const InputDecoration(
                 hintText: 'Matter',
                 border: InputBorder.none,
                 hintStyle: TextStyle(color: Colors.grey),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             IconButton(
               onPressed: _getImage,
-              icon: Icon(
+              icon: const Icon(
                 Icons.camera_alt,
                 color: Color(0xFFFE5B2A), // Set icon color to orange
               ),
             ),
             if (_image != null) Image.file(_image!),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(
@@ -260,7 +260,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   ),
                 ),
                 backgroundColor: MaterialStateProperty.all(
-                  Color(0xFFFE5B2A),
+                  const Color(0xFFFE5B2A),
                 ),
               ),
               onPressed: () async {
@@ -282,7 +282,7 @@ class _CreatePostPageState extends State<CreatePostPage> {
                   Navigator.pop(context, newPost);
                 }
               },
-              child: Text('Create Post'),
+              child: const Text('Create Post'),
             ),
           ],
         ),

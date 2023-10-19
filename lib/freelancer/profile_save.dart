@@ -196,15 +196,15 @@ class _ProfileEditState extends State<ProfileEdit> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
-        title: Text('Profile'),
+        title: const Text('Profile'),
         actions: [
           IconButton(
-            icon: Icon(Icons.edit),
+            icon: const Icon(Icons.edit),
             onPressed: () {
               Navigator.of(context)
                   .push(
@@ -228,7 +228,7 @@ class _ProfileEditState extends State<ProfileEdit> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -266,46 +266,46 @@ class _ProfileEditState extends State<ProfileEdit> {
                       ),
               ),
             ),
-            SizedBox(height: 100),
+            const SizedBox(height: 100),
             Text(
               'Username    :  ${userData['username'] ?? ''}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Text(
               'Job Type      :  ${userData['jobType'] ?? ''}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Text(
               'Experience   :  ${userData['experience'] ?? ''}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Text(
               'Skills             :  ${userData['skills'] ?? ''}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Text(
               'Link               :  ${userData['link'] ?? ''}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w300,
                 color: Colors.white,

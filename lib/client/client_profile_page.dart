@@ -66,7 +66,7 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
                     onPressed: () {
                       // Implement image upload logic
                     },
-                    child: Text('Change Profile Picture'),
+                    child: const Text('Change Profile Picture'),
                   ),
                   TextField(
                     onChanged: (value) {
@@ -75,13 +75,13 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
                       });
                     },
                     controller: TextEditingController(text: _username),
-                    decoration: InputDecoration(labelText: 'Username'),
+                    decoration: const InputDecoration(labelText: 'Username'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       _updateUserData();
                     },
-                    child: Text('Save'),
+                    child: const Text('Save'),
                   ),
                 ],
               ),

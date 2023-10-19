@@ -125,7 +125,7 @@ class _UserTypeSelectionPageState extends State<UserTypeSelectionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       // appBar: AppBar(
       //   title: Text('User Type Selection'),
       // ),
@@ -133,8 +133,8 @@ class _UserTypeSelectionPageState extends State<UserTypeSelectionPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text("Select user type",style: TextStyle(color: Colors.white,fontSize: 30),),
-            SizedBox(height: 50,),
+            const Text("Select user type",style: TextStyle(color: Colors.white,fontSize: 30),),
+            const SizedBox(height: 50,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -142,7 +142,7 @@ class _UserTypeSelectionPageState extends State<UserTypeSelectionPage> {
                   userType: 'Client',
                   onTap: () => handleUserSelection('Client'),
                 ),
-                SizedBox(width: 30.0),
+                const SizedBox(width: 30.0),
                 UserTypeButton(
                   userType: 'Freelancer',
                   onTap: () => handleUserSelection('Freelancer'),
@@ -160,7 +160,7 @@ class UserTypeButton extends StatelessWidget {
   final String userType;
   final VoidCallback onTap;
 
-  UserTypeButton({required this.userType, required this.onTap});
+  const UserTypeButton({super.key, required this.userType, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +170,7 @@ class UserTypeButton extends StatelessWidget {
         width: 150.0,
         height: 150.0,
         decoration: BoxDecoration(
-          color: Color(0xFFFE5B2A),
+          color: const Color(0xFFFE5B2A),
           borderRadius: BorderRadius.circular(15.0),
           // boxShadow: [
           //   BoxShadow(
@@ -184,7 +184,7 @@ class UserTypeButton extends StatelessWidget {
         child: Center(
           child: Text(
             userType,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 24.0,
               fontWeight: FontWeight.bold,

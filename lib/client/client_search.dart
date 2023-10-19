@@ -5,7 +5,7 @@ class ClientSearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
@@ -21,7 +21,7 @@ class ClientSearchPage extends StatelessWidget {
             )),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             SearchField(), 
@@ -43,7 +43,7 @@ class SearchField extends StatelessWidget {
         color: Colors.grey[200],
         borderRadius: BorderRadius.circular(8.0),
       ),
-      child: TextField(
+      child: const TextField(
         decoration: InputDecoration(
           hintText: 'Search...',
           prefixIcon: Icon(Icons.search),
@@ -59,7 +59,7 @@ class SearchResultList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    
-    return Center(
+    return const Center(
       child: Text('Search results will appear here.'),
     );
   }

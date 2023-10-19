@@ -56,25 +56,25 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
-        title: Text('Edit Profile'),
+        title: const Text('Edit Profile'),
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back,
               color: (Color(0xFFFE5B2A)),
             )),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             // children:
@@ -110,18 +110,18 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               TextFormField(
                 controller: usernameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'UserName',
                     border: InputBorder.none,
                     hintStyle: TextStyle(color: Colors.white)),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: jobtypeController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Job type',
                     border: InputBorder.none,
                     hintStyle: TextStyle(color: Colors.white)),
@@ -139,33 +139,33 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
               //   ],
               //   onChanged: (value) {},
               // ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: experienceController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Experience',
                     border: InputBorder.none,
                     hintStyle: TextStyle(color: Colors.white)),
                 keyboardType: TextInputType.number,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: skillsController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Skills',
                     border: InputBorder.none,
                     hintStyle: TextStyle(color: Colors.white)),
               ),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: linkController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     hintText: 'Link',
                     border: InputBorder.none,
                     hintStyle: TextStyle(color: Colors.white)),
               ),
-              SizedBox(height: 90),
+              const SizedBox(height: 90),
               Center(
                 child: Container(
                   width: 130,
@@ -177,7 +177,7 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
                         shape: MaterialStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50))),
                         backgroundColor:
-                            MaterialStatePropertyAll(Color(0xFFFE5B2A))),
+                            const MaterialStatePropertyAll(Color(0xFFFE5B2A))),
                     onPressed: () {
                       // Navigator.push(
                       //   context,
@@ -192,7 +192,7 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
                       // );
                       Navigator.pop(context);
                     },
-                    child: Text(
+                    child: const Text(
                       'Save',
                     ),
                   ),

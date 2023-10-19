@@ -14,7 +14,7 @@ class SendOrUpdateData extends StatefulWidget {
   final String imagePath;
   final String id;
 
-  const SendOrUpdateData({
+  const SendOrUpdateData({super.key, 
     this.username = '',
     this.jobType = '',
     this.experience = '',
@@ -118,7 +118,7 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
           });
         }
       } catch (e) {
-        print('Error uploading image: $e');
+        // print('Error uploading image: $e');
       }
     }
   }
@@ -126,26 +126,26 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
-        title: Text('Edit Profile'),
+        title: const Text('Edit Profile'),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: (Color(0xFFFE5B2A)),
           ),
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -184,55 +184,55 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
               ),
               TextFormField(
                 controller: usernameController,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
                   hintText: 'Username',
                   border: InputBorder.none,
                   hintStyle: TextStyle(color: Colors.grey),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: jobTypeController,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
                   hintText: 'Job type',
                   border: InputBorder.none,
                   hintStyle: TextStyle(color: Colors.grey),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: experienceController,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
                   hintText: 'Experience',
                   border: InputBorder.none,
                   hintStyle: TextStyle(color: Colors.grey),
                 ),
                 keyboardType: TextInputType.number,
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: skillsController,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
                   hintText: 'Skills',
                   border: InputBorder.none,
                   hintStyle: TextStyle(color: Colors.grey),
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextFormField(
                 controller: linkController,
-                style: TextStyle(color: Colors.white),
-                decoration: InputDecoration(
+                style: const TextStyle(color: Colors.white),
+                decoration: const InputDecoration(
                   hintText: 'Link',
                   border: InputBorder.none,
                   hintStyle: TextStyle(color: Colors.grey),
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Center(
                 child: Container(
                   width: 130,
@@ -248,7 +248,7 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
                         ),
                       ),
                       backgroundColor: MaterialStateProperty.all(
-                        Color(0xFFFE5B2A),
+                        const Color(0xFFFE5B2A),
                       ),
                     ),
                     onPressed: () async {
@@ -259,13 +259,13 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
                           skillsController.text.isEmpty ||
                           linkController.text.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Fill in all fields')),
+                          const SnackBar(content: Text('Fill in all fields')),
                         );
                       } else {
                         await _uploadImage(); // Upload image before updating Firestore
                       }
                     },
-                    child: Text(
+                    child: const Text(
                       'Save',
                     ),
                   ),

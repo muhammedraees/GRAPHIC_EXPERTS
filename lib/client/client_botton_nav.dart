@@ -13,6 +13,8 @@ import 'client_settings.dart';
 // import 'client_settings_page.dart'; // Replace with the actual client settings page file.
 
 class ClientBottomNav extends StatefulWidget {
+  const ClientBottomNav({super.key});
+
   @override
   _ClientBottomNavState createState() => _ClientBottomNavState();
 }
@@ -23,20 +25,20 @@ class _ClientBottomNavState extends State<ClientBottomNav> {
     ClientHomeScreen(),
     ClientSearchPage(),
     ClientChatListPage(),
-    ClientSettingsPage(),
+    const ClientSettingsPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: null,
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(14),
+        margin: const EdgeInsets.all(14),
         height: 80.0,
         decoration: BoxDecoration(
-          color: Color(0xFFFE5B2A),
+          color: const Color(0xFFFE5B2A),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Row(

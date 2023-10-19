@@ -30,12 +30,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Home',
           style: TextStyle(fontWeight: FontWeight.w300),
         ),
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -180,9 +180,9 @@ class _HomePageState extends State<HomePage> {
                       children: pairProfiles.map((profile) {
                         return Expanded(
                           child: Card(
-                            color: Color.fromARGB(255, 45, 45, 45),
+                            color: const Color.fromARGB(255, 45, 45, 45),
                             elevation: 2,
-                            margin: EdgeInsets.all(16),
+                            margin: const EdgeInsets.all(16),
                             child: Padding(
                               padding: const EdgeInsets.all(16),
                               child: Column(
@@ -192,43 +192,43 @@ class _HomePageState extends State<HomePage> {
                                         NetworkImage(profile.profileImageURL),
                                     radius: 50,
                                   ),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   Text(
                                     '${profile.username}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Text(
                                     '${profile.jobType}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Text(
                                     '${profile.experience}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Text(
                                     '${profile.skills}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
                                     ),
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Text(
                                     '${profile.link}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.blue,
                                       fontSize: 16,
                                       // decoration: TextDecoration.underline,

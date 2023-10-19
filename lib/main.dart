@@ -34,10 +34,13 @@
 //   }
 // }
 
+
+
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:graphic_experts/auth_steps/splash_screen/splash_screen.dart';
+// import 'package:graphic_experts/auth_steps/splash_screen/splash_screen.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'auth_steps/user_auth/presentation/pages/login_page.dart';
 import 'auth_steps/user_auth/presentation/pages/sign_up_page.dart';
@@ -49,7 +52,7 @@ Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
         apiKey: "AIzaSyCsHDQtI9DItQgSqwy45_y2xG9tDGxuER8",
         appId: "1:540215271818:web:8b22d4aee01acdce862873",
         messagingSenderId: "540215271818",
@@ -60,7 +63,7 @@ Future main() async {
   } else {
     await Firebase.initializeApp();
   }
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -71,14 +74,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Firebase',
       theme: ThemeData(
-        textSelectionTheme: TextSelectionThemeData(
+        textSelectionTheme: const TextSelectionThemeData(
           cursorColor: (Color(0xFFFE5B2A)),
         ),
       ),
       routes: {
         '/': (context) => OnboardingPage(
               // Here, you can decide whether to show the LoginPage or HomePage based on user authentication
-              child: LoginPage(),
+              // child: LoginPage(),
             ),
         '/login': (context) => LoginPage(),
         '/signUp': (context) => SignUpPage(),

@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:graphic_experts/screens/onboarding.dart';
+// import 'package:graphic_experts/screens/onboarding.dart';
 
 // import '../freelancer/profile_details.dart';
 import '../freelancer/profile_details.dart';
-import '../freelancer/profile_editing.dart';
+// import '../freelancer/profile_editing.dart';
 import '../freelancer/profile_save.dart';
 import '../freelancer/profile_create.dart';
 
@@ -31,11 +31,11 @@ class SettingsPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           ListTile(
-            leading: Icon(Icons.person,
+            leading: const Icon(Icons.person,
               color: Color(0xFFFE5B2A)),
             title: const Text('Profile',
               style: TextStyle(
@@ -45,16 +45,16 @@ class SettingsPage extends StatelessWidget {
              
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SendOrUpdateData()),
+                MaterialPageRoute(builder: (context) => const SendOrUpdateData()),
               );
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.share,
               color: Color(0xFFFE5B2A), 
             ),
-            title: Text(
+            title: const Text(
               'Share',
               style: TextStyle(
                 color: Colors.white, 
@@ -65,7 +65,7 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.article,
+            leading: const Icon(Icons.article,
               color: Color(0xFFFE5B2A)),
             title: const Text('Terms and Conditions',
               style: TextStyle(
@@ -80,7 +80,7 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.privacy_tip,
+            leading: const Icon(Icons.privacy_tip,
               color: Color(0xFFFE5B2A)),
             title: const Text('Privacy Policy',
               style: TextStyle(
@@ -97,7 +97,7 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.info,
+            leading: const Icon(Icons.info,
               color: Color(0xFFFE5B2A)),
             title: const Text('About',
               style: TextStyle(
@@ -107,12 +107,12 @@ class SettingsPage extends StatelessWidget {
              
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfileDetailsPage()),
+                MaterialPageRoute(builder: (context) => const ProfileDetailsPage()),
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout,
+            leading: const Icon(Icons.logout,
               color: Color(0xFFFE5B2A)),
             title: const Text('Log Out',
               style: TextStyle(
@@ -132,12 +132,12 @@ onTap: () {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31), // Set the dialog background color to grey
-        title: Text(
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31), // Set the dialog background color to grey
+        title: const Text(
           "Confirm Logout",
           style: TextStyle(color: Colors.white), // Set the text color to white
         ),
-        content: Text(
+        content: const Text(
           "Are you sure you want to log out ?",
           style: TextStyle(color: Colors.white), // Set the text color to white
         ),
@@ -146,7 +146,7 @@ onTap: () {
             style: TextButton.styleFrom(
               // backgroundColor: Colors.white, // Set the button background color to white
             ),
-            child: Text(
+            child: const Text(
               "Cancel",
               style: TextStyle(color: Colors.grey), // Set the button text color to grey
             ),
@@ -158,7 +158,7 @@ onTap: () {
             style: TextButton.styleFrom(
               // backgroundColor: Colors.white, // Set the button background color to white
             ),
-            child: Text(
+            child: const Text(
               "Yes",
               style: TextStyle(color: Color(0xFFFE5B2A)), // Set the button text color to grey
             ),

@@ -8,17 +8,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("HomePage"),
+          title: const Text("HomePage"),
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(
+            const Center(
                 child: Text(
               "Welcome Home buddy!",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
             )),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             GestureDetector(
@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(10)),
-                child: Center(
+                child: const Center(
                   child: Text(
                     "Sign out",
                     style: TextStyle(

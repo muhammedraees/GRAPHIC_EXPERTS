@@ -163,20 +163,20 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     HomeScreen(),
     SearchScreen(),
     ChatsScreen(),
-    SettingsPage(),
+    const SettingsPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: null,
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
-        margin: EdgeInsets.all(14),
+        margin: const EdgeInsets.all(14),
         height: 80.0,
         decoration: BoxDecoration(
-          color: Color(0xFFFE5B2A),
+          color: const Color(0xFFFE5B2A),
           borderRadius: BorderRadius.circular(20.0),
         ),
         child: Row(
@@ -243,7 +243,7 @@ class CustomNavItem extends StatelessWidget {
         onTap();
       },
       child: Container(
-        padding: EdgeInsets.all(12),
+        padding: const EdgeInsets.all(12),
         height: 60.0,
         width: 60.0,
         child: Icon(
@@ -258,7 +258,7 @@ class CustomNavItem extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Home Screen"),
     );
   }
@@ -267,7 +267,7 @@ class HomeScreen extends StatelessWidget {
 class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Search Screen"),
     );
   }
@@ -276,7 +276,7 @@ class SearchScreen extends StatelessWidget {
 class ChatsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("Chats Screen"),
     );
   }

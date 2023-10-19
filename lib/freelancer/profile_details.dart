@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'profile_editing.dart';
 
 class ProfileDetailsPage extends StatelessWidget {
+  const ProfileDetailsPage({super.key});
+
   //  String? name;
   //  String? jobTitle;
   //  String? experience;
@@ -97,7 +99,7 @@ class ProfileDetailsPage extends StatelessWidget {
           // children:
 
           children: <Widget>[
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
             Center(
               child: CircleAvatar(
                 backgroundColor: Colors.grey,
@@ -114,55 +116,55 @@ class ProfileDetailsPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 60),
-            Text(
+            const Text(
               'User Name',
               style: TextStyle(color: Colors.grey),
             ),
-            Text(
+            const Text(
               'Ajith Kumar',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Job type',
               style: TextStyle(color: Colors.grey),
             ),
-            Text(
+            const Text(
               'Designer',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Experience',
               style: TextStyle(color: Colors.grey),
             ),
-            Text(
+            const Text(
               '2 years',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Skills',
               style: TextStyle(color: Colors.grey),
             ),
-            Text(
+            const Text(
               'Graphics, UI',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Link',
               style: TextStyle(color: Colors.grey),
             ),
-            Text(
+            const Text(
               'www.skfgjnsrfkgvn.com',
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),

@@ -60,7 +60,7 @@
 import 'package:flutter/material.dart';
 
 import '../client/client_botton_nav.dart';
-import 'client_home_page.dart';
+// import 'client_home_page.dart';
 import 'freelancerbottomvav.dart';
 import 'signup.dart';
 
@@ -73,7 +73,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       body: Center( 
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -82,13 +82,13 @@ class LoginPage extends StatelessWidget {
               hintText: 'Email',
               prefixIcon: Icons.email,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             _buildTextFieldWithBox(
               hintText: 'Password',
               prefixIcon: Icons.lock,
               isPassword: true,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Center(
               child: Container(
                 width: 130,
@@ -104,7 +104,7 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     backgroundColor: MaterialStateProperty.all(
-                      Color(0xFFFE5B2A),
+                      const Color(0xFFFE5B2A),
                     ),
                   ),
                   onPressed: () {
@@ -133,7 +133,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             TextButton(
               onPressed: () {
                 Navigator.push(
@@ -143,7 +143,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Don\'t have an account? Sign up',
                 style: TextStyle(color: Colors.grey),
               ),
@@ -160,7 +160,7 @@ class LoginPage extends StatelessWidget {
     bool isPassword = false,
   }) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20.0), 
+      margin: const EdgeInsets.symmetric(horizontal: 20.0), 
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10.0),

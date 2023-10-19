@@ -27,11 +27,11 @@ class ClientSettingsPage extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.person,
               color: Color(0xFFFE5B2A),
             ),
@@ -45,16 +45,16 @@ class ClientSettingsPage extends StatelessWidget {
               // Navigate to the client profile page
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ClientProfilePage()),
+                MaterialPageRoute(builder: (context) => const ClientProfilePage()),
               );
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.share,
               color: Color(0xFFFE5B2A),
             ),
-            title: Text(
+            title: const Text(
               'Share',
               style: TextStyle(
                 color: Colors.white,
@@ -65,7 +65,7 @@ class ClientSettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.article,
               color: Color(0xFFFE5B2A),
             ),
@@ -84,7 +84,7 @@ class ClientSettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.privacy_tip,
               color: Color(0xFFFE5B2A),
             ),
@@ -103,7 +103,7 @@ class ClientSettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.info,
               color: Color(0xFFFE5B2A),
             ),
@@ -122,7 +122,7 @@ class ClientSettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.logout,
               color: Color(0xFFFE5B2A),
             ),

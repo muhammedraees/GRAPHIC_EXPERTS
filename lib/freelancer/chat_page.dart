@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
 class ChatListPage extends StatelessWidget {
+  const ChatListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Chat List',
           style: TextStyle(fontWeight: FontWeight.w300),
         ),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -34,7 +36,7 @@ class ChatListPage extends StatelessWidget {
                 );
               },
             ),
-            Divider(
+            const Divider(
               color: Colors.grey,
               thickness: 1,
             ),
@@ -53,7 +55,7 @@ class ChatListPage extends StatelessWidget {
                 );
               },
             ),
-            Divider(
+            const Divider(
               color: Colors.grey,
               thickness: 1,
             ),
@@ -72,7 +74,7 @@ class ChatListPage extends StatelessWidget {
                 );
               },
             ),
-            Divider(
+            const Divider(
               color: Colors.grey,
               thickness: 1,
             ),
@@ -90,7 +92,7 @@ class ChatListItem extends StatelessWidget {
   final String time;
   final VoidCallback onTap;
 
-  ChatListItem({
+  const ChatListItem({super.key, 
     required this.username,
     required this.lastMessage,
     required this.time,
@@ -100,13 +102,13 @@ class ChatListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      contentPadding: EdgeInsets.all(0),
+      contentPadding: const EdgeInsets.all(0),
       leading: CircleAvatar(
         backgroundColor: Colors.grey,
         radius: 30,
         child: Text(
           username.substring(0, 1), 
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -115,7 +117,7 @@ class ChatListItem extends StatelessWidget {
       ),
       title: Text(
         username,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
           color: Colors.white,
@@ -123,7 +125,7 @@ class ChatListItem extends StatelessWidget {
       ),
       subtitle: Text(
         lastMessage,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 14,
           fontWeight: FontWeight.w300,
           color: Colors.white,
@@ -131,7 +133,7 @@ class ChatListItem extends StatelessWidget {
       ),
       trailing: Text(
         time,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w300,
           color: Colors.grey,
@@ -145,26 +147,26 @@ class ChatListItem extends StatelessWidget {
 class ChatPage extends StatelessWidget {
   final String username;
 
-  ChatPage({required this.username});
+  const ChatPage({super.key, required this.username});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
         title: Text(
           username,
-          style: TextStyle(fontWeight: FontWeight.w300),
+          style: const TextStyle(fontWeight: FontWeight.w300),
         ),
       ),
       body: Column(
         children: [
           Expanded(
             child: ListView(
-              padding: EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               children: [
     
                 ChatMessage(text: 'Hello', isSentByMe: true),
@@ -183,14 +185,14 @@ class ChatPage extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.emoji_emotions),
+                    icon: const Icon(Icons.emoji_emotions),
                     onPressed: () {
 
                     },
                   ),
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: 'Type a message',
                         contentPadding: EdgeInsets.all(15),
                         border: InputBorder.none,
@@ -198,7 +200,7 @@ class ChatPage extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    icon: Icon(Icons.send),
+                    icon: const Icon(Icons.send),
                     onPressed: () {
           
                     },
@@ -217,15 +219,15 @@ class ChatMessage extends StatelessWidget {
   final String text;
   final bool isSentByMe;
 
-  ChatMessage({required this.text, required this.isSentByMe});
+  const ChatMessage({super.key, required this.text, required this.isSentByMe});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: isSentByMe ? Alignment.centerRight : Alignment.centerLeft,
-      margin: EdgeInsets.symmetric(vertical: 5.0),
+      margin: const EdgeInsets.symmetric(vertical: 5.0),
       child: Container(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           color: isSentByMe ? Colors.orange[900] : Colors.grey[300],
           borderRadius: BorderRadius.circular(15.0),

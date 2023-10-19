@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       // appBar: AppBar(
       //   title: Text("Login"),
       // ),
@@ -40,11 +40,11 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Login",
                 style: TextStyle(color: Colors.white,fontSize: 27, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               FormContainerWidget(
@@ -52,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: "Email",
                 isPasswordField: false,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               FormContainerWidget(
@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: "Password",
                 isPasswordField: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               GestureDetector(
@@ -69,10 +69,10 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   height: 45,
                   decoration: BoxDecoration(
-                    color: Color(0xFFFE5B2A), // Changed color to orange
+                    color: const Color(0xFFFE5B2A), // Changed color to orange
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Login",
                       style: TextStyle(
@@ -83,14 +83,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account?"),
-                  SizedBox(
+                  const Text("Don't have an account?"),
+                  const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
@@ -101,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                         (route) => false,
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "Sign Up",
                       style: TextStyle(
                         color: Color(0xFFFE5B2A), // Changed color to orange

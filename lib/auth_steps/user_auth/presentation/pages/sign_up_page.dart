@@ -177,7 +177,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       // appBar: AppBar(
       //   title: Text("Sign Up"),
       // ),
@@ -187,11 +187,11 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Sign Up",
                 style: TextStyle(color: Colors.white,fontSize: 27, fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               FormContainerWidget(
@@ -199,7 +199,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: "Username",
                 isPasswordField: false,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               FormContainerWidget(
@@ -207,7 +207,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: "Email",
                 isPasswordField: false,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               FormContainerWidget(
@@ -215,7 +215,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 hintText: "Password",
                 isPasswordField: true,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               GestureDetector(
@@ -224,10 +224,10 @@ class _SignUpPageState extends State<SignUpPage> {
                   width: double.infinity,
                   height: 45,
                   decoration: BoxDecoration(
-                    color: Color(0xFFFE5B2A), // Changed color to orange
+                    color: const Color(0xFFFE5B2A), // Changed color to orange
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       "Sign Up",
                       style: TextStyle(
@@ -238,14 +238,14 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Already have an account?",style: TextStyle(color: Colors.grey),),
-                  SizedBox(
+                  const Text("Already have an account?",style: TextStyle(color: Colors.grey),),
+                  const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
@@ -258,7 +258,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         (route) => false,
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       "Login",
                       style: TextStyle(
                         color: Color(0xFFFE5B2A), // Changed color to orange

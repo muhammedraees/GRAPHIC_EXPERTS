@@ -90,12 +90,12 @@ import 'login.dart';
 class SignupPage extends StatelessWidget {
   final String userType;
 
-  SignupPage(this.userType);
+  const SignupPage(this.userType, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       // appBar: AppBar(
       //   backgroundColor: Colors.transparent,
       //   elevation: 0,
@@ -110,7 +110,7 @@ class SignupPage extends StatelessWidget {
       //   ),
       // ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -118,18 +118,18 @@ class SignupPage extends StatelessWidget {
               hintText: 'Username',
               prefixIcon: Icons.person,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             _buildTextFieldWithBox(
               hintText: 'Email',
               prefixIcon: Icons.email,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             _buildTextFieldWithBox(
               hintText: 'Password',
               prefixIcon: Icons.lock,
               isPassword: true,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             Center(
               child: Container(
                 width: 130,
@@ -156,7 +156,7 @@ class SignupPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             TextButton(
               onPressed: () {
                 Navigator.push(
@@ -166,7 +166,7 @@ class SignupPage extends StatelessWidget {
                   ),
                 );
               },
-              child: Text('Already have an account? Login',style: TextStyle(color: Colors.grey),),
+              child: const Text('Already have an account? Login',style: TextStyle(color: Colors.grey),),
             ),
           ],
         ),

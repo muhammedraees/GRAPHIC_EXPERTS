@@ -99,24 +99,24 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 32, 32, 31),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 32, 32, 31),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
         centerTitle: true,
-        title: Text('Search Page'),
+        title: const Text('Search Page'),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
             color: Color(0xFFFE5B2A),
           ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             SearchField(
@@ -152,7 +152,7 @@ class SearchField extends StatelessWidget {
         onChanged: (query) {
           onSearch(query);
         },
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
           hintText: 'Search...',
           prefixIcon: Icon(Icons.search),
           border: InputBorder.none,
@@ -184,7 +184,7 @@ class SearchResultList extends StatelessWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         }
