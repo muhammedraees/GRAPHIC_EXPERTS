@@ -1,7 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import 'client_profile_page.dart';
+// import '../screens/login.dart';
+// import 'client_profile_page.dart';
+import 'settings_client/about_client.dart';
+import 'settings_client/policy_client.dart';
+import 'settings_client/terms_client.dart';
 
 class ClientSettingsPage extends StatelessWidget {
   const ClientSettingsPage({Key? key}) : super(key: key);
@@ -42,11 +46,10 @@ class ClientSettingsPage extends StatelessWidget {
               ),
             ),
             onTap: () {
-              // Navigate to the client profile page
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ClientProfilePage()),
-              );
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const ClientProfilePage()),
+              // );
             },
           ),
           ListTile(
@@ -61,7 +64,7 @@ class ClientSettingsPage extends StatelessWidget {
               ),
             ),
             onTap: () {
-              // Implement sharing functionality
+           
             },
           ),
           ListTile(
@@ -76,11 +79,11 @@ class ClientSettingsPage extends StatelessWidget {
               ),
             ),
             onTap: () {
-              // Navigate to the terms and conditions page
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => TermsAndConditionsPage()),
-              // );
+           
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ClientTermsAndConditionsPage()),
+              );
             },
           ),
           ListTile(
@@ -95,11 +98,11 @@ class ClientSettingsPage extends StatelessWidget {
               ),
             ),
             onTap: () {
-              // Navigate to the privacy policy page
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),
-              // );
+           
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ClientPrivacyPolicyPage()),
+              );
             },
           ),
           ListTile(
@@ -114,11 +117,11 @@ class ClientSettingsPage extends StatelessWidget {
               ),
             ),
             onTap: () {
-              // Navigate to the about page
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => AboutPage()),
-              // );
+          
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AboutPage()),
+              );
             },
           ),
           ListTile(
@@ -133,9 +136,7 @@ class ClientSettingsPage extends StatelessWidget {
               ),
             ),
             onTap: () {
-              // Log out the user
-              FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, "/login");
+      
             },
           ),
         ],
@@ -144,7 +145,3 @@ class ClientSettingsPage extends StatelessWidget {
   }
 }
 
-// Define your client profile page if it's different from the freelancer profile page
-
-
-// Define your other pages (TermsAndConditionsPage, PrivacyPolicyPage, AboutPage) as needed.

@@ -131,7 +131,7 @@ class _LoginPageState extends State<LoginPage> {
         Navigator.pushNamed(context, "/home");
       }
     } catch (e) {
-      print("Error signing in: $e");
+      // print("Error signing in: $e");
     }
   }
 }

@@ -1,7 +1,6 @@
+// unnecessorry removable
 import 'package:flutter/material.dart';
-
 import 'profile_editing.dart';
-
 class ProfileDetailsPage extends StatelessWidget {
   const ProfileDetailsPage({super.key});
 

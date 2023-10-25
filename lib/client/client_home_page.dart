@@ -636,8 +636,8 @@ class CreatePostPage extends StatefulWidget {
 
 class _CreatePostPageState extends State<CreatePostPage> {
   // ... Your existing code for the create post screen ...
-    TextEditingController _titleController = TextEditingController();
-  TextEditingController _textController = TextEditingController();
+    final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _textController = TextEditingController();
   File? _image;
 
   Future _getImage() async {

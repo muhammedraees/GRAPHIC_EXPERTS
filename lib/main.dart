@@ -44,7 +44,7 @@ import 'package:flutter/material.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'auth_steps/user_auth/presentation/pages/login_page.dart';
 import 'auth_steps/user_auth/presentation/pages/sign_up_page.dart';
-import 'my_tests/navigator.dart';
+// import 'my_tests/navigator.dart';
 import 'screens/freelancerbottomvav.dart';
 import 'screens/onboarding.dart';
 

@@ -86,6 +86,7 @@
 import 'package:flutter/material.dart';
 
 import '../auth_steps/user_auth/presentation/pages/login_page.dart';
+import 'freelancerbottomvav.dart';
 import 'signup.dart';
 
 // class UserTypeSelectionPage extends StatefulWidget {
@@ -143,10 +144,21 @@ class _UserTypeSelectionPageState extends State<UserTypeSelectionPage> {
                   onTap: () => handleUserSelection('Client'),
                 ),
                 const SizedBox(width: 30.0),
-                UserTypeButton(
+                // UserTypeButton(
+                //   userType: 'Freelancer',
+                //   onTap: () => handleUserSelection('Freelancer'),
+                // ),
+                 UserTypeButton(
                   userType: 'Freelancer',
-                  onTap: () => handleUserSelection('Freelancer'),
+                  // onTap: () => FreelancerBottomNav(),
+                  onTap: (){
+                    Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FreelancerBottomNav()),
+              );
+                  },
                 ),
+             
               ],
             ),
           ],

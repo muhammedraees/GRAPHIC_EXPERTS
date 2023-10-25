@@ -5,7 +5,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ClientProfilePage extends StatefulWidget {
   const ClientProfilePage({Key? key}) : super(key: key);
-
   @override
   _ClientProfilePageState createState() => _ClientProfilePageState();
 }
@@ -31,7 +30,8 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
 
   Future<void> _getUserData() async {
     if (_user != null) {
-      final userData = await _firestore.collection('users').doc(_user!.uid).get();
+      final userData =
+          await _firestore.collection('users').doc(_user!.uid).get();
       setState(() {
         _username = userData['username'];
       });
@@ -40,15 +40,31 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
 
   Future<void> _updateUserData() async {
     if (_user != null) {
-      await _firestore.collection('users').doc(_user!.uid).set({'username': _username});
+      await _firestore
+          .collection('users')
+          .doc(_user!.uid)
+          .set({'username': _username});
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        title: const Text('Client Profile'),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+        elevation: 0,
+        centerTitle: true,
+        title: const Text('Profile'),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Color(0xFFFE5B2A),
+          ),
+        ),
       ),
       body: Center(
         child: Column(

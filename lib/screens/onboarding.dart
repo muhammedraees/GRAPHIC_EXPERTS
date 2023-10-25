@@ -105,8 +105,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
             width: 300, // Adjust width and height as needed
             height: 300,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 16.0),
             child: Text(
               "You can browse and find talented freelancers for your projects.",
               style: TextStyle(
@@ -153,8 +153,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
             width: 300, // Adjust width and height as needed
             height: 300,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 16.0),
             child: Text(
               "Post job listings and connect with skilled freelancers.",
               style: TextStyle(
@@ -177,8 +177,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
             width: 300, // Adjust width and height as needed
             height: 300,
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 16.0),
             child: Text(
               "Chat and collaborate with freelancers in real time.",
               style: TextStyle(
