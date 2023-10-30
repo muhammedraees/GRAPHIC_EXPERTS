@@ -252,13 +252,6 @@
 //   }
 // }
 
-
-
-
-
-
-
-
 // import 'package:flutter/material.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -358,7 +351,7 @@
 //               ),
 //               Expanded(
 //                 child: ListView.builder(
-                  
+
 //                   itemCount: profiles.length,
 //                   itemBuilder: (context, index) {
 //                     final profile = profiles[index];
@@ -432,8 +425,6 @@
 //     );
 //   }
 // }
-
-
 
 // import 'package:flutter/material.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
@@ -616,7 +607,6 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -637,6 +627,7 @@ class UserProfile {
     required this.profileImageURL,
   });
 }
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -705,73 +696,118 @@ class _HomePageState extends State<HomePage> {
         ),
         Expanded(
           child: ListView.builder(
-            itemCount: filteredProfiles.length,
+            itemCount: (filteredProfiles.length / 2).ceil(),
             itemBuilder: (context, index) {
-              final profile = filteredProfiles[index];
-              return GestureDetector(
-                onTap: () {
-                  showProfileDialog(context, profile); // Show the profile in a dialog
-                },
-                child: Card(
-                  color: const Color.fromARGB(255, 45, 45, 45),
-                  elevation: 2,
-                  margin: const EdgeInsets.all(16),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: NetworkImage(profile.profileImageURL != null
-                              ? profile.profileImageURL
-                              : 'assets/images/unknown_profile.jpg',
+              final startIdx = index * 2;
+              final endIdx = startIdx + 2;
+
+              return Row(
+                children: [
+                  for (var i = startIdx; i < endIdx; i++)
+                    if (i < filteredProfiles.length)
+                      Expanded(
+                        flex: 1, // Equal width for both profiles
+                        child: GestureDetector(
+                          onTap: () {
+                            showProfileDialog(context, filteredProfiles[i]);
+                          },
+                          child: Card(
+                            color: const Color.fromARGB(255, 45, 45, 45),
+                            elevation: 2,
+                            margin: const EdgeInsets.all(16),
+                            child: Padding(
+                              padding: const EdgeInsets.all(16),
+                              child: Column(
+                                children: [
+                                  // CircleAvatar(
+                                  //   backgroundImage: NetworkImage(
+                                  //     filteredProfiles[i].profileImageURL != null
+                                  //         ? filteredProfiles[i].profileImageURL
+                                  //         : 'assets/images/unknown_profile.jpg',
+                                  //   ),
+                                  //   radius: 50,
+                                  // ),
+                                  Stack(
+                                    children: <Widget>[
+                                      CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                          filteredProfiles[i].profileImageURL !=
+                                                  null
+                                              ? filteredProfiles[i]
+                                                  .profileImageURL
+                                              : 'assets/images/unknown_profile.jpg',
+                                        ),
+                                        radius: 50,
+                                      ),
+                                      if (filteredProfiles[i].profileImageURL ==
+                                          null)
+                                        Container(
+                                          width:
+                                              100, // Adjust the width and height as needed
+                                          height: 100,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors
+                                                .transparent, // Set the background color to transparent
+                                          ),
+                                          child: ClipOval(
+                                            child: Image.asset(
+                                              'assets/images/unknown_profile.jpg',
+                                              width: 100,
+                                              height: 100,
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 16),
+                                  Text(
+                                    '${filteredProfiles[i].username}',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    filteredProfiles[i].jobType,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    filteredProfiles[i].experience,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    filteredProfiles[i].skills,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    filteredProfiles[i].link,
+                                    style: const TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                          radius: 50,
                         ),
-                        const SizedBox(height: 16),
-                        Text(
-                          '${profile.username}',
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          profile.jobType,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          profile.experience,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          profile.skills,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          profile.link,
-                          style: const TextStyle(
-                            color: Colors.blue,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                      ),
+                ],
               );
             },
           ),
@@ -794,7 +830,9 @@ class _HomePageState extends State<HomePage> {
     if (selectedJobType == null || selectedJobType == 'All') {
       return profiles;
     } else {
-      return profiles.where((profile) => profile.jobType == selectedJobType).toList();
+      return profiles
+          .where((profile) => profile.jobType == selectedJobType)
+          .toList();
     }
   }
 
@@ -824,7 +862,8 @@ class FullProfileDialog extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start, // Align text to the left
+            crossAxisAlignment:
+                CrossAxisAlignment.start, // Align text to the left
             children: <Widget>[
               Center(
                 child: GestureDetector(
@@ -835,7 +874,8 @@ class FullProfileDialog extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: const Color.fromARGB(255, 32, 32, 31),
                       radius: 60,
-                      child: profile.profileImageURL != null && profile.profileImageURL.isNotEmpty
+                      child: profile.profileImageURL != null &&
+                              profile.profileImageURL.isNotEmpty
                           ? ClipRRect(
                               borderRadius: BorderRadius.circular(80),
                               child: Image.network(

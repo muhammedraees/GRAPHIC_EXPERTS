@@ -46,7 +46,7 @@ class _ClientProfilePageState extends State<ClientProfilePage> {
           .set({'username': _username});
     }
   }
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(

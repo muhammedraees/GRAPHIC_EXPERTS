@@ -1,8 +1,157 @@
+// import 'package:flutter/material.dart';
+// import 'package:image_picker/image_picker.dart';
+// import 'dart:io';
+
+// class Post {
+//   final String title;
+//   final String text;
+//   final File? image;
+//   final DateTime timestamp;
+//   Post({required this.title, required this.text, this.image, required this.timestamp});
+// }
+
+// class ClientHomeScreen extends StatefulWidget {
+//   @override
+//   _ClientHomeScreenState createState() => _ClientHomeScreenState();
+// }
+
+// class _ClientHomeScreenState extends State<ClientHomeScreen> {
+//   final List<Post> _posts = [];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Client Home Screen'),
+//       ),
+//       body: Column(
+//         children: [
+//           Expanded(
+//             child: ListView.builder(
+//               itemCount: _posts.length,
+//               itemBuilder: (context, index) {
+//                 final post = _posts[index];
+//                 return Card(
+//                   margin: EdgeInsets.all(8.0),
+//                   child: ListTile(
+//                     title: Text(post.title),
+//                     subtitle: Column(
+//                       crossAxisAlignment: CrossAxisAlignment.start,
+//                       children: [
+//                         Text(post.text),
+//                         if (post.image != null) // Display the image if available
+//                           Image.file(post.image!),
+//                         Text(
+//                           'Posted on: ${post.timestamp.toLocal()}',
+//                           style: TextStyle(fontSize: 12),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 );
+//               },
+//             ),
+//           ),
+//         ],
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: () {
+//           Navigator.push(
+//             context,
+//             MaterialPageRoute(builder: (context) => CreatePostPage()),
+//           ).then((newPost) {
+//             if (newPost != null) {
+//               setState(() {
+//                 _posts.add(newPost);
+//               });
+//             }
+//           });
+//         },
+//         child: Icon(Icons.add),
+//       ),
+//     );
+//   }
+// }
+
+// class CreatePostPage extends StatefulWidget {
+//   @override
+//   _CreatePostPageState createState() => _CreatePostPageState();
+// }
+
+// class _CreatePostPageState extends State<CreatePostPage> {
+//   TextEditingController _titleController = TextEditingController();
+//   TextEditingController _textController = TextEditingController();
+//   File? _image;
+
+//   Future _getImage() async {
+//     final picker = ImagePicker();
+//     final pickedFile = await picker.pickImage(source: ImageSource.gallery); // You can also use ImageSource.camera for the camera
+
+//     setState(() {
+//       _image = pickedFile != null ? File(pickedFile.path) : null;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Create Post'),
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: ListView(
+//           children: [
+//             TextField(
+//               controller: _titleController,
+//               decoration: InputDecoration(
+//                 hintText: 'Enter title',
+//               ),
+//             ),
+//             SizedBox(height: 16),
+//             TextField(
+//               controller: _textController,
+//               decoration: InputDecoration(
+//                 hintText: 'Enter text',
+//               ),
+//             ),
+//             SizedBox(height: 16),
+//             ElevatedButton(
+//               onPressed: _getImage, // Call _getImage to pick an image
+//               child: Text('Pick Image'),
+//             ),
+//             if (_image != null) // Display the picked image if available
+//               Image.file(_image!),
+//             SizedBox(height: 16),
+//             ElevatedButton(
+//               onPressed: () {
+//                 final title = _titleController.text;
+//                 final text = _textController.text;
+//                 final timestamp = DateTime.now();
+
+//                 if (title.isNotEmpty && text.isNotEmpty) {
+//                   final newPost = Post(
+//                     title: title,
+//                     text: text,
+//                     image: _image,
+//                     timestamp: timestamp,
+//                   );
+//                   Navigator.pop(context, newPost);
+//                 }
+//               },
+//               child: Text('Create Post'),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // import 'package:flutter/material.dart';
 // import 'package:image_picker/image_picker.dart';
 // import 'dart:io';
-// // import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_core/firebase_core.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 // import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:intl/intl.dart';
@@ -50,12 +199,12 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+//       backgroundColor: Color.fromARGB(255, 32, 32, 31),
 //       appBar: AppBar(
-//         backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+//         backgroundColor: Color.fromARGB(255, 32, 32, 31),
 //         elevation: 0,
 //         centerTitle: true,
-//         title: const Text(
+//         title: Text(
 //           'Home',
 //           style: TextStyle(fontWeight: FontWeight.w300),
 //         ),
@@ -74,7 +223,7 @@
 //                 }
 
 //                 if (snapshot.connectionState == ConnectionState.waiting) {
-//                   return const Center(
+//                   return Center(
 //                     child: CircularProgressIndicator(),
 //                   );
 //                 }
@@ -90,46 +239,46 @@
 //                 return ListView.separated(
 //                   itemCount: _posts.length,
 //                   separatorBuilder: (context, index) {
-//                     return const SizedBox(
+//                     return SizedBox(
 //                       height: 1,
 //                     ); // No separator
 //                   },
 //                   itemBuilder: (context, index) {
 //                     final post = _posts[index];
 //                     return Card(
-//                       color: const Color.fromARGB(255, 32, 32, 31),
-//                       margin: const EdgeInsets.all(8.0),
+//                       color: Color.fromARGB(255, 32, 32, 31),
+//                       margin: EdgeInsets.all(8.0),
 //                       child: ListTile(
 //                         title: Text(
 //                           post.title,
-//                           style: const TextStyle(
+//                           style: TextStyle(
 //                             color: Colors.white, // Set the text color to white
 //                           ),
 //                         ),
 //                         subtitle: Column(
 //                           crossAxisAlignment: CrossAxisAlignment.start,
 //                           children: [
-//                             const SizedBox(height: 10),
+//                             SizedBox(height: 10),
 //                             Text(
 //                               post.text,
-//                               style: const TextStyle(
+//                               style: TextStyle(
 //                                 color:
 //                                     Colors.white, // Set the text color to white
 //                               ),
 //                             ),
-//                             const SizedBox(height: 10),
+//                             SizedBox(height: 10),
 //                             if (post.imageUrl.isNotEmpty)
 //                               Image.network(post.imageUrl),
 //                             // Display the image using its URL
-//                             const SizedBox(height: 10),
+//                             SizedBox(height: 10),
 //                             Text(
 //                               'Posted on: ${DateFormat('yyyy-MM-dd HH:mm:ss').format(post.timestamp.toLocal())}',
-//                               style: const TextStyle(
+//                               style: TextStyle(
 //                                 fontSize: 12,
 //                                 color: Colors.grey,
 //                               ),
 //                             ),
-//                             const SizedBox(height: 30),
+//                             SizedBox(height: 30),
 //                           ],
 //                         ),
 //                       ),
@@ -142,7 +291,7 @@
 //         ],
 //       ),
 //       floatingActionButton: FloatingActionButton(
-//         backgroundColor: const Color(0xFFFE5B2A),
+//         backgroundColor: Color(0xFFFE5B2A),
 //         onPressed: () {
 //           Navigator.push(
 //             context,
@@ -161,7 +310,7 @@
 //             }
 //           });
 //         },
-//         child: const Icon(Icons.add),
+//         child: Icon(Icons.add),
 //       ),
 //     );
 //   }
@@ -225,33 +374,33 @@
 //           children: [
 //             TextField(
 //               controller: _titleController,
-//               style: const TextStyle(color: Colors.white),
-//               decoration: const InputDecoration(
+//               style: TextStyle(color: Colors.white),
+//               decoration: InputDecoration(
 //                 hintText: 'Caption',
 //                 border: InputBorder.none,
 //                 hintStyle: TextStyle(color: Colors.grey),
 //               ),
 //             ),
-//             const SizedBox(height: 16),
+//             SizedBox(height: 16),
 //             TextField(
 //               controller: _textController,
-//               style: const TextStyle(color: Colors.white),
-//               decoration: const InputDecoration(
+//               style: TextStyle(color: Colors.white),
+//               decoration: InputDecoration(
 //                 hintText: 'Matter',
 //                 border: InputBorder.none,
 //                 hintStyle: TextStyle(color: Colors.grey),
 //               ),
 //             ),
-//             const SizedBox(height: 16),
+//             SizedBox(height: 16),
 //             IconButton(
 //               onPressed: _getImage,
-//               icon: const Icon(
+//               icon: Icon(
 //                 Icons.camera_alt,
 //                 color: Color(0xFFFE5B2A), // Set icon color to orange
 //               ),
 //             ),
 //             if (_image != null) Image.file(_image!),
-//             const SizedBox(height: 16),
+//             SizedBox(height: 16),
 //             ElevatedButton(
 //               style: ButtonStyle(
 //                 shape: MaterialStateProperty.all(
@@ -260,7 +409,7 @@
 //                   ),
 //                 ),
 //                 backgroundColor: MaterialStateProperty.all(
-//                   const Color(0xFFFE5B2A),
+//                   Color(0xFFFE5B2A),
 //                 ),
 //               ),
 //               onPressed: () async {
@@ -282,7 +431,7 @@
 //                   Navigator.pop(context, newPost);
 //                 }
 //               },
-//               child: const Text('Create Post'),
+//               child: Text('Create Post'),
 //             ),
 //           ],
 //         ),

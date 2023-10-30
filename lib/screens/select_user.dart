@@ -144,20 +144,20 @@ class _UserTypeSelectionPageState extends State<UserTypeSelectionPage> {
                   onTap: () => handleUserSelection('Client'),
                 ),
                 const SizedBox(width: 30.0),
-                // UserTypeButton(
-                //   userType: 'Freelancer',
-                //   onTap: () => handleUserSelection('Freelancer'),
-                // ),
-                 UserTypeButton(
+                UserTypeButton(
                   userType: 'Freelancer',
-                  // onTap: () => FreelancerBottomNav(),
-                  onTap: (){
-                    Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FreelancerBottomNav()),
-              );
-                  },
+                  onTap: () => handleUserSelection('Freelancer'),
                 ),
+              //    UserTypeButton(
+              //     userType: 'Freelancer',
+              //     // onTap: () => FreelancerBottomNav(),
+              //     onTap: (){
+              //       Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => FreelancerBottomNav()),
+              // );
+              //     },
+              //   ),
              
               ],
             ),
