@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../chat/pages/home_page.dart';
+import '../freelancer/home_page.dart';
 import 'bottom_nav.dart';
 import '../freelancer/chat_page.dart';
-import '../freelancer/home_page.dart';
 // import '../freelancer/profile_details.dart';
 import '../freelancer/search_page.dart';
 import 'settings_page.dart';
@@ -17,7 +18,7 @@ class _FreelancerBottomNavState extends State<FreelancerBottomNav> {
   final List<Widget> _pages = [
     HomePage(),
     SearchPage(),
-    ChatListPage(),
+    ChatHomePage(),
     const SettingsPage(),
   ];
 
@@ -80,14 +81,26 @@ class _FreelancerBottomNavState extends State<FreelancerBottomNav> {
   }
 }
 
-class FreelancerHomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Freelancer Home Screen"),
-    );
-  }
-}
+// class FreelancerHomeScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Center(
+//       child: Text("Freelancer Home Screen"),
+//     );
+//   }
+// }
+
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(),
+//       body: Text(''),
+//     );
+//   }
+// }
 
 class FreelancerSearchScreen extends StatelessWidget {
   @override
