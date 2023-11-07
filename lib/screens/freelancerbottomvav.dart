@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../chat/pages/home_page.dart';
-import '../freelancer/home_page.dart';
+// import '../freelancer/home_page.dart';
+import '../client/client_home_page.dart';
+import '../client/client_post_listing.dart';
+import '../client_post_new/home_post_cli.dart';
+import '../client_post_new/post_listing_cli.dart';
 import 'bottom_nav.dart';
 import '../freelancer/chat_page.dart';
 // import '../freelancer/profile_details.dart';
@@ -16,8 +20,10 @@ class FreelancerBottomNav extends StatefulWidget {
 class _FreelancerBottomNavState extends State<FreelancerBottomNav> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
+    // HomePage(),
     HomePage(),
-    SearchPage(),
+    // SearchPage(),
+    UserPostsPage(),
     ChatHomePage(),
     const SettingsPage(),
   ];

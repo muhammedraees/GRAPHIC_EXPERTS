@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../screens/bottom_nav.dart';
 import 'client_chat.dart';
 import 'client_home_page.dart';
+import 'client_post_listing.dart';
 import 'client_search.dart';
 import 'client_settings.dart';
 
@@ -23,7 +24,8 @@ class _ClientBottomNavState extends State<ClientBottomNav> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     ClientHomeScreen(),
-    ClientSearchPage(),
+    // ClientSearchPage(),
+    AllPostsPage(),
     ClientChatListPage(),
     const ClientSettingsPage(),
   ];
