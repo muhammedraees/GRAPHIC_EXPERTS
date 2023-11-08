@@ -22,7 +22,8 @@ class _PostListHomeState extends State<PostListHome> {
           return Post(
             userId: data['userId'],
             image: data['image'],
-            caption: data['caption'], userEmail: '',
+            caption: data['caption'],
+            userEmail: '',
           );
         }
         // Handle missing fields in the document as needed
@@ -34,53 +35,60 @@ class _PostListHomeState extends State<PostListHome> {
     }
   }
 
-void _showRequestDialog(BuildContext context, Post post) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Text('Request Post'),
-        content: const Text('Do you want to request this post?'),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              // Handle the request logic here
-              // You can add your request handling code
+  void _showRequestDialog(BuildContext context, Post post) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+          title: const Text('Request Post',style: TextStyle(
+                          color: Colors.white), ),
+          content: const Text('Do you want to request this post ?',style: TextStyle(
+                          color: Colors.white), ),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                // Handle the request logic here
+                // You can add your request handling code
 
-              // Replace the following lines with your chat page navigation logic.
-              // You should navigate to the chat page with the receiver's information.
-              Navigator.of(context).pop(); // Close the dialog.
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ChatRequestPage(
-                    receiverUserId: post.userId, // Receiver's user ID
-                    receiverUserEmail: post.userEmail, // Receiver's email
+                // Replace the following lines with your chat page navigation logic.
+                // You should navigate to the chat page with the receiver's information.
+                Navigator.of(context).pop(); // Close the dialog.
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatRequestPage(
+                      receiverUserId: post.userId, // Receiver's user ID
+                      receiverUserEmail: post.userEmail, // Receiver's email
+                    ),
                   ),
-                ),
-              );
-            },
-            child: const Text('Request'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: const Text('Cancel'),
-          ),
-        ],
-      );
-    },
-  );
-}
-
+                );
+              },
+              child: const Text('Request',style: TextStyle(
+                              color: Color(
+                                  0xFFFE5B2A)),),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel',style: TextStyle(
+                              color: Colors
+                                  .grey), ),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+      // appBar: AppBar(
+      //   title: const Text('Home'),
+      // ),
       body: FutureBuilder<List<Post>>(
         future: _getAllPosts(),
         builder: (context, snapshot) {
@@ -94,19 +102,27 @@ void _showRequestDialog(BuildContext context, Post post) {
               itemCount: posts.length,
               itemBuilder: (context, index) {
                 final post = posts[index];
-                return GestureDetector( // Wrap with GestureDetector to handle taps
+                return GestureDetector(
                   onTap: () {
-                    _showRequestDialog(context, post); // Show the dialog when post is tapped
+                    _showRequestDialog(context, post);
                   },
-                  child: ListTile(
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(post.caption),
-                        const SizedBox(height: 8), // Adjust the spacing as needed
-                      ],
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                        bottom: 16.0), // Add margin to create spacing
+                    child: ListTile(
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            post.caption,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          const SizedBox(
+                              height: 8), // Adjust the spacing as needed
+                        ],
+                      ),
+                      subtitle: Image.network(post.image),
                     ),
-                    subtitle: Image.network(post.image),
                   ),
                 );
               },

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'create_post_cli.dart';
-import 'post_model_cli.dart'; // Import the Post class
-// import 'create_post_page.dart'; // Import the CreatePostPage
+import 'post_model_cli.dart';
 
 class UserPostsPage extends StatefulWidget {
   @override
@@ -23,7 +22,8 @@ class _UserPostsPageState extends State<UserPostsPage> {
       return Post(
         userId: data['userId'],
         image: data['image'],
-        caption: data['caption'], userEmail: '',
+        caption: data['caption'],
+        userEmail: '',
       );
     }).toList();
   }
@@ -40,8 +40,20 @@ class _UserPostsPageState extends State<UserPostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+        elevation: 0,
+        centerTitle: true,
         title: const Text('Your Posts'),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: (Color(0xFFFE5B2A)),
+            )),
       ),
       body: FutureBuilder<List<Post>>(
         future: _getUserPosts(),
@@ -53,22 +65,40 @@ class _UserPostsPageState extends State<UserPostsPage> {
           } else {
             final List<Post> userPosts = snapshot.data!;
             return ListView.builder(
-  itemCount: userPosts.length,
-  itemBuilder: (context, index) {
-    final post = userPosts[index];
-    return ListTile(
-      title: Text(post.caption),
-      // Display the image here using Image.network
-      leading: Image.network(post.image),
-    );
-  },
-);
-
+              itemCount: userPosts.length,
+              itemBuilder: (context, index) {
+                final post = userPosts[index];
+                return Container(
+                  padding: const EdgeInsets.all(16.0),
+                  // decoration: BoxDecoration(
+                  //   border: Border.all(color: Colors.grey),
+                  //   borderRadius: BorderRadius.circular(8.0),
+                  // ),
+                  margin: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        post.caption,
+                        style: const TextStyle(
+                          fontSize: 16.0,
+                          // fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                      ),
+                      const SizedBox(height: 8.0),
+                      Image.network(post.image),
+                    ],
+                  ),
+                );
+              },
+            );
           }
         },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        backgroundColor: const Color(0xFFFE5B2A),
+       onPressed: () {
           _navigateToCreatePostPage(context);
         },
         child: const Icon(Icons.add),

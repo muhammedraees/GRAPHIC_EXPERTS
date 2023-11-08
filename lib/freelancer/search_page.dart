@@ -263,38 +263,40 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 32, 32, 31),
-        elevation: 0,
-        centerTitle: true,
-        title: const Text('Search Page'),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-            color: Color(0xFFFE5B2A),
+        // appBar: AppBar(
+        //   backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+        //   elevation: 0,
+        //   centerTitle: true,
+        //   title: const Text('Search Page'),
+        //   leading: IconButton(
+        //     onPressed: () {
+        //       Navigator.pop(context);
+        //     },
+        //     icon: const Icon(
+        //       Icons.arrow_back,
+        //       color: Color(0xFFFE5B2A),
+        //     ),
+        //   ),
+        // ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              SearchField(
+                onSearch: (query) {
+                  setState(() {
+                    searchQuery = query;
+                  });
+                },
+              ),
+              Expanded(
+                child: SearchResultList(searchQuery: searchQuery),
+              ),
+            ],
           ),
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            SearchField(
-              onSearch: (query) {
-                setState(() {
-                  searchQuery = query;
-                });
-              },
-            ),
-            Expanded(
-              child: SearchResultList(searchQuery: searchQuery),
-            ),
-          ],
         ),
       ),
     );

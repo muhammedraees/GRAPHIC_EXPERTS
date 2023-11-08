@@ -209,10 +209,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
         onDonePress: () {
           Navigator.push(
             context,
-            // MaterialPageRoute(
-            //   builder: (context) => UserTypeSelectionPage(),
-            // ),
-            MaterialPageRoute(builder: (context) => AuthGate()),
+            MaterialPageRoute(
+              builder: (context) => UserTypeSelectionPage(),
+            ),
+            // MaterialPageRoute(builder: (context) => AuthGate()),
           );
         },
       ),

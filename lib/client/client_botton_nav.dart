@@ -23,7 +23,8 @@ class ClientBottomNav extends StatefulWidget {
 class _ClientBottomNavState extends State<ClientBottomNav> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
-    ClientHomeScreen(),
+    // ClientHomeScreen(),
+    ClientChatListPage(),
     // ClientSearchPage(),
     AllPostsPage(),
     const ClientChatListPage(),

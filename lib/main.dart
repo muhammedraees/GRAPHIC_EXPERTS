@@ -121,7 +121,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.grey, // Set the primary color to grey.
+        // primarySwatch: Colors.grey, // Set the primary color to grey.
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: (Color(0xFFFE5B2A)),
         ),

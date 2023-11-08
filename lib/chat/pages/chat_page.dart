@@ -44,7 +44,26 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.receiverUserEmail)),
+      // appBar: AppBar(title: Text(widget.receiverUserEmail)),
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+      appBar: AppBar(
+        title: Text(
+          widget.receiverUserEmail,
+          style: TextStyle(
+            color: Colors
+                .white, // Set the text color to white or your desired color.
+          ),
+        ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: (Color(0xFFFE5B2A)),
+            )),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -134,32 +153,37 @@ class _ChatPageState extends State<ChatPage> {
   //   );
   // }
   Widget _buildMessageItem(DocumentSnapshot document) {
-  Map<String, dynamic> data = document.data() as Map<String, dynamic>;
+    Map<String, dynamic> data = document.data() as Map<String, dynamic>;
 
-  var isSentMessage = (data['senderId'] == _firebaseAuth.currentUser!.uid);
-  var alignment = isSentMessage ? Alignment.centerRight : Alignment.centerLeft;
-  var bubbleColor = isSentMessage ? Colors.grey : Colors.black; // Set different colors for sent and received messages.
+    var isSentMessage = (data['senderId'] == _firebaseAuth.currentUser!.uid);
+    var alignment =
+        isSentMessage ? Alignment.centerRight : Alignment.centerLeft;
+    var bubbleColor = isSentMessage
+        ? Colors.grey
+        : Colors.black; // Set different colors for sent and received messages.
 
-  return Container(
-    alignment: alignment,
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        crossAxisAlignment: isSentMessage ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-        mainAxisAlignment: isSentMessage ? MainAxisAlignment.end : MainAxisAlignment.start,
-        children: [
-          // Text(data['senderEmail']),
-          const SizedBox(height: 5),
-          ChatBubble(
-            message: data['message'],
-            backgroundColor: bubbleColor, // Pass the background color based on sender/receiver.
-          ),
-        ],
+    return Container(
+      alignment: alignment,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          crossAxisAlignment:
+              isSentMessage ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          mainAxisAlignment:
+              isSentMessage ? MainAxisAlignment.end : MainAxisAlignment.start,
+          children: [
+            // Text(data['senderEmail']),
+            const SizedBox(height: 5),
+            ChatBubble(
+              message: data['message'],
+              backgroundColor:
+                  bubbleColor, // Pass the background color based on sender/receiver.
+            ),
+          ],
+        ),
       ),
-    ),
-  );
-}
-
+    );
+  }
 
   Widget _buildMessageInput() {
     return Padding(
@@ -176,7 +200,8 @@ class _ChatPageState extends State<ChatPage> {
               onPressed: sendMessage,
               icon: const Icon(
                 Icons.send,
-                size: 40,
+                color: Color(0xFFFE5B2A),
+                size: 30,
               ))
         ],
       ),

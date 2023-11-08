@@ -197,8 +197,20 @@ class _CreatePostPageState extends State<CreatePostPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       appBar: AppBar(
-        title: Text('Create Post'),
+        backgroundColor: const Color.fromARGB(255, 32, 32, 31),
+        elevation: 0,
+        centerTitle: true,
+        title: const Text('Create Post'),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: (Color(0xFFFE5B2A)),
+            )),
       ),
       body: Center(
         child: Column(
@@ -209,20 +221,39 @@ class _CreatePostPageState extends State<CreatePostPage> {
                 height: 200,
                 width: 200,
               ),
-            ElevatedButton(
-              onPressed: _selectImage,
-              child: Text('Select Image'),
+            IconButton(
+              onPressed:_selectImage,
+              icon: const Icon(
+                Icons.camera_alt,
+                color: Color(0xFFFE5B2A), // Set icon color to orange
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: TextField(
-                controller: captionController,
-                decoration: InputDecoration(labelText: 'Caption'),
+              child: 
+              TextField(
+              controller: captionController,
+              style: const TextStyle(color: Colors.white),
+              decoration: const InputDecoration(
+                hintText: 'Caption',
+                border: InputBorder.none,
+                hintStyle: TextStyle(color: Colors.grey),
               ),
             ),
+            ),
             ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                ),
+                backgroundColor: MaterialStateProperty.all(
+                  const Color(0xFFFE5B2A),
+                ),
+              ),
               onPressed: _uploadPost,
-              child: Text('Upload Post'),
+              child: const Text('Upload Post'),
             ),
           ],
         ),

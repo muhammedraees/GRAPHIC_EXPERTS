@@ -41,7 +41,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -49,15 +49,6 @@ class _RegisterPageState extends State<RegisterPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
-                  Icons.message,
-                  size: 100,
-                  color: Colors.grey[800],
-                ),
-                const Text(
-                  "Let's create an account for you!",
-                  style: TextStyle(fontSize: 16),
-                ),
                 const SizedBox(
                   height: 25,
                 ),
@@ -85,14 +76,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(
                   height: 25,
                 ),
-                MyButton(onTap: signUp, text: "Sign Up"),
+                MyButton(onTap: signUp, text: "Sign Up",),
                 const SizedBox(
                   height: 50,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text('Already a member ?'),
+                    const Text('Already a member ?',style: TextStyle(color: Colors.grey),),
                     const SizedBox(
                       width: 4,
                     ),
@@ -100,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       onTap: widget.onTap,
                       child: const Text(
                         'Login now',
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),
                       ),
                     )
                   ],
