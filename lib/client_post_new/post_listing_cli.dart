@@ -23,7 +23,7 @@ class _UserPostsPageState extends State<UserPostsPage> {
       return Post(
         userId: data['userId'],
         image: data['image'],
-        caption: data['caption'],
+        caption: data['caption'], userEmail: '',
       );
     }).toList();
   }

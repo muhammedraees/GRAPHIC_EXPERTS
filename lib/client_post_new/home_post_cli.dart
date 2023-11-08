@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'chat_req.dart';
 import 'post_model_cli.dart';
 
 class PostListHome extends StatefulWidget {
@@ -21,11 +22,11 @@ class _PostListHomeState extends State<PostListHome> {
           return Post(
             userId: data['userId'],
             image: data['image'],
-            caption: data['caption'],
+            caption: data['caption'], userEmail: '',
           );
         }
         // Handle missing fields in the document as needed
-        return Post(userId: '', image: '', caption: '');
+        return Post(userId: '', image: '', caption: '', userEmail: '');
       }).toList();
     } catch (e) {
       print('Error fetching posts: $e');
@@ -33,33 +34,46 @@ class _PostListHomeState extends State<PostListHome> {
     }
   }
 
-  void _showRequestDialog(BuildContext context, Post post) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Request Post'),
-          content: const Text('Do you want to request this post?'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                // Handle the request logic here
-                // You can add your request handling code
-                Navigator.of(context).pop();
-              },
-              child: const Text('Request'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('Cancel'),
-            ),
-          ],
-        );
-      },
-    );
-  }
+void _showRequestDialog(BuildContext context, Post post) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text('Request Post'),
+        content: const Text('Do you want to request this post?'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              // Handle the request logic here
+              // You can add your request handling code
+
+              // Replace the following lines with your chat page navigation logic.
+              // You should navigate to the chat page with the receiver's information.
+              Navigator.of(context).pop(); // Close the dialog.
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ChatRequestPage(
+                    receiverUserId: post.userId, // Receiver's user ID
+                    receiverUserEmail: post.userEmail, // Receiver's email
+                  ),
+                ),
+              );
+            },
+            child: const Text('Request'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: const Text('Cancel'),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
