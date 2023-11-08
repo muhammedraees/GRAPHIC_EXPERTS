@@ -94,7 +94,7 @@ class _AllPostsPageState extends State<AllPostsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('All Posts'),
+        title: const Text('All Posts'),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('posts').snapshots(),
@@ -106,7 +106,7 @@ class _AllPostsPageState extends State<AllPostsPage> {
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -169,8 +169,8 @@ class _AllPostsPageState extends State<AllPostsPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Request Post'),
-          content: Text('Do you want to request this post?'),
+          title: const Text('Request Post'),
+          content: const Text('Do you want to request this post?'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -178,13 +178,13 @@ class _AllPostsPageState extends State<AllPostsPage> {
                 // You can add your request handling code
                 Navigator.of(context).pop();
               },
-              child: Text('Request'),
+              child: const Text('Request'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
           ],
         );

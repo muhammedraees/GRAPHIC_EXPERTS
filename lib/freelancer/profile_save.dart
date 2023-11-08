@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'profile_create.dart';
 
 class ProfileEdit extends StatefulWidget {
-  ProfileEdit({Key? key}) : super(key: key);
+  const ProfileEdit({Key? key}) : super(key: key);
 
   @override
   State<ProfileEdit> createState() => _ProfileEditState();
@@ -23,7 +23,7 @@ class _ProfileEditState extends State<ProfileEdit> {
   Future<void> fetchUserData() async {
     try {
       final snapshot =
-          await FirebaseFirestore.instance.collection('users').get();
+          await FirebaseFirestore.instance.collection('usersprofile').get();
       if (snapshot.docs.isNotEmpty) {
         setState(() {
           userData = snapshot.docs.first.data() as Map<String, dynamic>;

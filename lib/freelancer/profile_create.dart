@@ -366,7 +366,7 @@ class _SendOrUpdateDataState extends State<SendOrUpdateData> {
 
         final imageUrl = await firebaseStorageRef.getDownloadURL();
 
-        final dUser = FirebaseFirestore.instance.collection('users').doc();
+        final dUser = FirebaseFirestore.instance.collection('usersprofile').doc();
 
         // Now, you can use imageUrl to store the image URL in Firestore.
         final jsonData = {

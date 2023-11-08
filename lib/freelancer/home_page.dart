@@ -610,6 +610,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'profile_full_view.dart';
+
 class UserProfile {
   final String username;
   final String jobType;
@@ -643,18 +645,41 @@ class _HomePageState extends State<HomePage> {
     fetchUserProfiles();
   }
 
+  // void fetchUserProfiles() async {
+  //   final snapshot = await FirebaseFirestore.instance.collection('users').get();
+  //   if (snapshot.docs.isNotEmpty) {
+  //     profiles = snapshot.docs.map((doc) {
+  //       final data = doc.data() as Map<String, dynamic>;
+  //       return UserProfile(
+  //         username: data['username'],
+  //         jobType: data['jobType'],
+  //         experience: data['experience'],
+  //         skills: data['skills'],
+  //         link: data['link'],
+  //         profileImageURL: data['profile'],
+  //       );
+  //     }).toList();
+  //     setState(() {});
+  //   }
+  // }
   void fetchUserProfiles() async {
-    final snapshot = await FirebaseFirestore.instance.collection('users').get();
+    final snapshot =
+        await FirebaseFirestore.instance.collection('usersprofile').get();
     if (snapshot.docs.isNotEmpty) {
       profiles = snapshot.docs.map((doc) {
         final data = doc.data() as Map<String, dynamic>;
         return UserProfile(
-          username: data['username'],
-          jobType: data['jobType'],
-          experience: data['experience'],
-          skills: data['skills'],
-          link: data['link'],
-          profileImageURL: data['profile'],
+          username:
+              data['username'] ?? '', // Handle null value with an empty string
+          jobType:
+              data['jobType'] ?? '', // Handle null value with an empty string
+          experience: data['experience'] ??
+              '', // Handle null value with an empty string
+          skills:
+              data['skills'] ?? '', // Handle null value with an empty string
+          link: data['link'] ?? '', // Handle null value with an empty string
+          profileImageURL:
+              data['profile'] ?? '', // Handle null value with an empty string
         );
       }).toList();
       setState(() {});
@@ -745,7 +770,7 @@ class _HomePageState extends State<HomePage> {
                                           width:
                                               100, // Adjust the width and height as needed
                                           height: 100,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                             color: Colors
                                                 .transparent, // Set the background color to transparent
@@ -848,106 +873,3 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class FullProfileDialog extends StatelessWidget {
-  final UserProfile profile;
-
-  FullProfileDialog({required this.profile});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      color: const Color.fromARGB(255, 32, 32, 31),
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment:
-                CrossAxisAlignment.start, // Align text to the left
-            children: <Widget>[
-              Center(
-                child: GestureDetector(
-                  onTap: () {
-                    // Handle profile image
-                  },
-                  child: Center(
-                    child: CircleAvatar(
-                      backgroundColor: const Color.fromARGB(255, 32, 32, 31),
-                      radius: 60,
-                      child: profile.profileImageURL != null &&
-                              profile.profileImageURL.isNotEmpty
-                          ? ClipRRect(
-                              borderRadius: BorderRadius.circular(80),
-                              child: Image.network(
-                                profile.profileImageURL,
-                                width: 160,
-                                height: 160,
-                                fit: BoxFit.cover,
-                              ),
-                            )
-                          : ClipRRect(
-                              borderRadius: BorderRadius.circular(80),
-                              child: Image.asset(
-                                'assets/images/unknown_profile.jpg',
-                                width: 160,
-                                height: 160,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              Text(
-                'Name       :  ${profile.username}',
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w300,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.left, // Align text to the left
-              ),
-              const SizedBox(height: 10),
-              Text(
-                'Job Type      :  ${profile.jobType}',
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.left, // Align text to the left
-              ),
-              const SizedBox(height: 10),
-              Text(
-                'Experience   :  ${profile.experience}',
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.left, // Align text to the left
-              ),
-              const SizedBox(height: 10),
-              Text(
-                'Skills             :  ${profile.skills}',
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.left, // Align text to the left
-              ),
-              const SizedBox(height: 10),
-              Text(
-                'Link               :  ${profile.link}',
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.left, // Align text to the left
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}

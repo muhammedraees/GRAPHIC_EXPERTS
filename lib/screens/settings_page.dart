@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 // import '../freelancer/profile_details.dart';
 // import '../freelancer/profile_details.dart';
 // import '../freelancer/profile_editing.dart';
+import '../client_post_new/post_listing_cli.dart';
+import '../freelancer/home_page.dart';
 import '../freelancer/profile_save.dart';
 import '../freelancer/profile_create.dart';
 import '../freelancer/settings_freelancer/about_freelancer.dart';
@@ -48,7 +50,7 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => SendOrUpdateData(id: '',)),
+                MaterialPageRoute(builder: (context) => const SendOrUpdateData(id: '',)),
               );
             },
           ),ListTile(
@@ -65,7 +67,7 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
                Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ProfileEdit()),
+                    MaterialPageRoute(builder: (context) => const ProfileEdit()),
                   );
             },
           ),
@@ -80,8 +82,30 @@ class SettingsPage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
+            // HomePage
             onTap: () {
-              
+              Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomePage()),
+                  );
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.post_add,
+              color: Color(0xFFFE5B2A),
+            ),
+            title: const Text(
+              'Posts',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UserPostsPage()),
+                  );
             },
           ),
           ListTile(

@@ -304,7 +304,7 @@ class _SearchPageState extends State<SearchPage> {
 class SearchField extends StatelessWidget {
   final void Function(String) onSearch;
 
-  SearchField({required this.onSearch});
+  const SearchField({required this.onSearch});
 
   @override
   Widget build(BuildContext context) {
@@ -331,13 +331,13 @@ class SearchField extends StatelessWidget {
 class SearchResultList extends StatelessWidget {
   final String searchQuery;
 
-  SearchResultList({required this.searchQuery});
+  const SearchResultList({required this.searchQuery});
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: FirebaseFirestore.instance
-          .collection('users')
+          .collection('usersprofile')
           .where('username', isGreaterThanOrEqualTo: searchQuery)
           .where('username', isLessThan: searchQuery + 'z')
           .snapshots(),
@@ -408,7 +408,7 @@ class SearchResultList extends StatelessWidget {
 class UserProfileDetails extends StatelessWidget {
   final UserProfile profile; // Change this to UserProfile
 
-  UserProfileDetails({required this.profile}); // Change this to profile
+  const UserProfileDetails({required this.profile}); // Change this to profile
 
   @override
   Widget build(BuildContext context) {

@@ -68,7 +68,7 @@ class LoginPage extends StatelessWidget {
   final String userType;
   final bool isLoggedIn;
 
-  LoginPage(this.userType, this.isLoggedIn);
+  const LoginPage(this.userType, this.isLoggedIn);
 
   @override
   Widget build(BuildContext context) {

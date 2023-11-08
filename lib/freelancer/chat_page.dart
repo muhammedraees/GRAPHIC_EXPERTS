@@ -29,7 +29,7 @@ class ChatListPage extends StatelessWidget {
               
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ChatPage(
+                    builder: (context) => const ChatPage(
                       username: 'User 1',
                     ),
                   ),
@@ -48,7 +48,7 @@ class ChatListPage extends StatelessWidget {
         
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ChatPage(
+                    builder: (context) => const ChatPage(
                       username: 'User 2',
                     ),
                   ),
@@ -67,7 +67,7 @@ class ChatListPage extends StatelessWidget {
               
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => ChatPage(
+                    builder: (context) => const ChatPage(
                       username: 'User 3',
                     ),
                   ),
@@ -169,8 +169,8 @@ class ChatPage extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               children: [
     
-                ChatMessage(text: 'Hello', isSentByMe: true),
-                ChatMessage(text: 'Hi there!', isSentByMe: false),
+                const ChatMessage(text: 'Hello', isSentByMe: true),
+                const ChatMessage(text: 'Hi there!', isSentByMe: false),
           
               ],
             ),

@@ -85,9 +85,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../auth_steps/user_auth/presentation/pages/login_page.dart';
+// import '../auth_steps/user_auth/presentation/pages/login_page.dart';
 import '../chat/services/auth/auth_gate.dart';
-import 'freelancerbottomvav.dart';
+// import 'freelancerbottomvav.dart';
 import 'signup.dart';
 
 // class UserTypeSelectionPage extends StatefulWidget {
@@ -118,7 +118,7 @@ class _UserTypeSelectionPageState extends State<UserTypeSelectionPage> {
       Navigator.push(
         context,
         // MaterialPageRoute(builder: (context) => SignupPage(userType)),
-        MaterialPageRoute(builder: (context) => AuthGate()),
+        MaterialPageRoute(builder: (context) => const AuthGate()),
         
       );
     }

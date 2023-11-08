@@ -97,9 +97,10 @@ import 'package:provider/provider.dart';
 // import 'package:sampl_rest/chat/services/auth/auth_gate.dart';
 // import 'package:sampl_rest/chat/services/auth/auth_service.dart';
 
-import 'chat/services/auth/auth_gate.dart';
+// import 'chat/services/auth/auth_gate.dart';
 import 'chat/services/auth/auth_service.dart';
-import 'screens/select_user.dart';
+import 'screens/onboarding.dart';
+// import 'screens/select_user.dart';
 
 
 Future<void> main() async {
@@ -125,7 +126,7 @@ class MyApp extends StatelessWidget {
           cursorColor: (Color(0xFFFE5B2A)),
         ),
       ),
-      home: UserTypeSelectionPage(),
+      home: OnboardingPage(),
     );
   }
 }

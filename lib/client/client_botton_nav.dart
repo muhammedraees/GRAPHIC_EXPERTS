@@ -4,7 +4,7 @@ import '../screens/bottom_nav.dart';
 import 'client_chat.dart';
 import 'client_home_page.dart';
 import 'client_post_listing.dart';
-import 'client_search.dart';
+// import 'client_search.dart';
 import 'client_settings.dart';
 
 // import 'bottom_nav.dart';
@@ -26,7 +26,7 @@ class _ClientBottomNavState extends State<ClientBottomNav> {
     ClientHomeScreen(),
     // ClientSearchPage(),
     AllPostsPage(),
-    ClientChatListPage(),
+    const ClientChatListPage(),
     const ClientSettingsPage(),
   ];
 
