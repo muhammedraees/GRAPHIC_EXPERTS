@@ -30,24 +30,4 @@ class MyTextField extends StatelessWidget {
       ),
     );
   }
-  //  @override
-  // Widget build(BuildContext context) {
-  //   return Container(
-  //     height: 50, 
-  //     decoration: BoxDecoration(
-  //       borderRadius: BorderRadius.circular(5.0), 
-  //       color: Colors.grey[200], 
-  //     ),
-  //     child: TextField(
-  //       controller: controller,
-  //       obscureText: obscureText,
-  //       decoration: InputDecoration(
-  //         enabledBorder: InputBorder.none, 
-  //         focusedBorder: InputBorder.none, 
-  //         hintText: hintText,
-  //         hintStyle: const TextStyle(color: Colors.grey),
-  //       ),
-  //     ),
-  //   );
-  // }
 }
