@@ -24,7 +24,6 @@ class _ChatHomePageState extends State<ChatHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 32, 32, 31),
-      
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 32, 32, 31),
         elevation: 0,
@@ -81,41 +80,40 @@ class _ChatHomePageState extends State<ChatHomePage> {
   //   }
   // }
   Widget _buildUserListItem(DocumentSnapshot document) {
-  Map<String, dynamic>? data = document.data() as Map<String, dynamic>?;
+    Map<String, dynamic>? data = document.data() as Map<String, dynamic>?;
 
-  if (data != null) {
-    String? userEmail = data['email'];
-    if (userEmail != null &&
-        _auth.currentUser != null &&
-        _auth.currentUser!.email != userEmail) {
-      return Column(
-        children: [
-          ListTile(
-            title: Text(
-              userEmail,
-              style: TextStyle(color: Colors.grey), // Set text color to grey
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ChatPage(
-                    receiverUserEmail: userEmail,
-                    receiverUserID: data['uid'],
+    if (data != null) {
+      String? userEmail = data['email'];
+      if (userEmail != null &&
+          _auth.currentUser != null &&
+          _auth.currentUser!.email != userEmail) {
+        return Column(
+          children: [
+            ListTile(
+              title: Text(
+                userEmail,
+                style: const TextStyle(color: Colors.grey), // Set text color to grey
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChatPage(
+                      receiverUserEmail: userEmail,
+                      receiverUserID: data['uid'],
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-          Divider(
-            color: Colors.grey, // Set separator color to grey
-          ),
-        ],
-      );
+                );
+              },
+            ),
+            const Divider(
+              color: Colors.grey, // Set separator color to grey
+            ),
+          ],
+        );
+      }
     }
+
+    return Container();
   }
-
-  return Container();
-}
-
 }

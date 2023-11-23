@@ -1,11 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-// import 'package:graphic_experts/screens/onboarding.dart';
-
-// import '../freelancer/profile_details.dart';
-// import '../freelancer/profile_details.dart';
-// import '../freelancer/profile_editing.dart';
 import '../client_post_new/post_listing_cli.dart';
+import '../client_post_new/req_status.dart';
 import '../freelancer/home_page.dart';
 import '../freelancer/profile_save.dart';
 import '../freelancer/profile_create.dart';
@@ -109,6 +105,26 @@ class SettingsPage extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(
+              Icons.notifications,
+              color: Color(0xFFFE5B2A),
+            ),
+            title: const Text(
+              'Request status',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => UserRequestsPage(userId: 'your_user_id_here'),
+      ),
+    );
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.article, color: Color(0xFFFE5B2A)),
             title: const Text(
               'Terms and Conditions',
@@ -176,7 +192,7 @@ class SettingsPage extends StatelessWidget {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     backgroundColor: const Color.fromARGB(255, 32, 32,
-                        31), // Set the dialog background color to grey
+                        31), 
                     title: const Text(
                       "Confirm Logout",
                       style: TextStyle(

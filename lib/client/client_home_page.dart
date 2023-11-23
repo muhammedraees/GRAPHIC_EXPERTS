@@ -511,7 +511,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                                   onPressed: () {
                                     deletePost(post.id);
                                   },
-                                  icon: Icon(Icons.delete,color: Colors.grey,),
+                                  icon: const Icon(Icons.delete,color: Colors.grey,),
                                   // child: const Text('Delete Post'),
                                 ),
                                 IconButton(
@@ -541,7 +541,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
 
                                     editPost(post);
                                   },
-                                  icon: Icon(Icons.edit,color: Colors.grey,),
+                                  icon: const Icon(Icons.edit,color: Colors.grey,),
                                   // child: const Text('Edit Post'),
                                 ),
                               ],

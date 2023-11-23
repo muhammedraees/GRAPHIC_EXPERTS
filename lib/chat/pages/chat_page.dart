@@ -1,10 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../components/chat_bubble.dart';
-import '../components/my_text_field.dart';
-import '../services/chat/chat_service.dart';
 // import 'package:sampl_rest/chat/components/chat_bubble.dart';
 // import 'package:sampl_rest/chat/components/my_text_field.dart';
 // import 'package:sampl_rest/chat/services/chat/chat_service.dart';
@@ -210,9 +205,14 @@ import '../services/chat/chat_service.dart';
 //   }
 // }
 
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart'; // Import the intl package for date formatting.
 
+import 'package:intl/intl.dart'; // Import the intl package for date formatting.
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+
+import '../components/chat_bubble.dart';
+import '../components/my_text_field.dart';
+import '../services/chat/chat_service.dart';
 class ChatPage extends StatefulWidget {
   final String receiverUserEmail;
   final String receiverUserID;
@@ -269,7 +269,6 @@ class _ChatPageState extends State<ChatPage> {
           return const Text('Loading...');
         }
         List<Widget> messageWidgets = [];
-        DateTime currentDate;
 
         for (var document in snapshot.data!.docs) {
           Map<String, dynamic> data = document.data() as Map<String, dynamic>;
@@ -320,7 +319,7 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         title: Text(
           widget.receiverUserEmail,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),

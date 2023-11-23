@@ -167,10 +167,10 @@ class ChatPage extends StatelessWidget {
           Expanded(
             child: ListView(
               padding: const EdgeInsets.all(16),
-              children: [
+              children: const [
     
-                const ChatMessage(text: 'Hello', isSentByMe: true),
-                const ChatMessage(text: 'Hi there!', isSentByMe: false),
+                ChatMessage(text: 'Hello', isSentByMe: true),
+                ChatMessage(text: 'Hi there!', isSentByMe: false),
           
               ],
             ),

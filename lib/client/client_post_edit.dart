@@ -287,7 +287,7 @@ class _PostEditPageState extends State<PostEditPage> {
                     //   Navigator.pop(context, newPost);
                     // }
                     final postRef =
-                        await FirebaseFirestore.instance.collection('posts');
+                        FirebaseFirestore.instance.collection('posts');
                     await postRef.doc(widget.post.id).update(newPost.toMap());
                   } else {
                     // Handle the case where the image upload failed

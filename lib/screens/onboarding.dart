@@ -75,6 +75,7 @@ import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:lottie/lottie.dart';
 
+// import '../chat/services/auth/auth_gate.dart';
 import '../chat/services/auth/auth_gate.dart';
 import 'select_user.dart'; // Import the Lottie package
 
@@ -209,10 +210,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
         onDonePress: () {
           Navigator.push(
             context,
-            MaterialPageRoute(
-              builder: (context) => UserTypeSelectionPage(),
-            ),
-            // MaterialPageRoute(builder: (context) => AuthGate()),
+            // MaterialPageRoute(
+            //   builder: (context) => UserTypeSelectionPage(),
+            // ),
+            MaterialPageRoute(builder: (context) => AuthGate()),
           );
         },
       ),

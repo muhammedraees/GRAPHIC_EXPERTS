@@ -69,10 +69,10 @@ class ChatBubble extends StatelessWidget {
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(isSentMessage ? 16.0 : 0.0),
           topRight: Radius.circular(isSentMessage ? 0.0 : 16.0),
-          bottomLeft: Radius.circular(16.0),
-          bottomRight: Radius.circular(16.0),
+          bottomLeft: const Radius.circular(16.0),
+          bottomRight: const Radius.circular(16.0),
         ),
-        color: isSentMessage ? Color(0xFFFE5B2A) : Color.fromARGB(255, 226, 223, 223),
+        color: isSentMessage ? const Color(0xFFFE5B2A) : const Color.fromARGB(255, 226, 223, 223),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
