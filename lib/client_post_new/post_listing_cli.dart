@@ -117,7 +117,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'create_post_cli.dart';
 import 'post_details.dart';
 import 'post_model_cli.dart';
-// import 'post_detail_page.dart'; // Import your post detail page
 
 class UserPostsPage extends StatefulWidget {
   @override
@@ -194,35 +193,42 @@ class _UserPostsPageState extends State<UserPostsPage> {
             );
           } else {
             final List<Post> userPosts = snapshot.data!;
-            return ListView.builder(
-              itemCount: userPosts.length,
-              itemBuilder: (context, index) {
-                final post = userPosts[index];
-                return GestureDetector(
-                  onTap: () {
-                    _navigateToPostDetailPage(context, post);
-                  },
-                  child: Container(
-                    padding: const EdgeInsets.all(16.0),
-                    margin: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          post.caption,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.white,
+            return userPosts.isEmpty
+                ? Center(
+                    child: Text(
+                      'No posts available.',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
+                : ListView.builder(
+                    itemCount: userPosts.length,
+                    itemBuilder: (context, index) {
+                      final post = userPosts[index];
+                      return GestureDetector(
+                        onTap: () {
+                          _navigateToPostDetailPage(context, post);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.all(16.0),
+                          margin: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                post.caption,
+                                style: const TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 8.0),
+                              Image.network(post.image),
+                            ],
                           ),
                         ),
-                        const SizedBox(height: 8.0),
-                        Image.network(post.image),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            );
+                      );
+                    },
+                  );
           }
         },
       ),
