@@ -1,20 +1,9 @@
-// unnecessorry removable
+
 import 'package:flutter/material.dart';
 import 'profile_editing.dart';
 class ProfileDetailsPage extends StatelessWidget {
   const ProfileDetailsPage({super.key});
 
-  //  String? name;
-  //  String? jobTitle;
-  //  String? experience;
-  // final File image;
-
-  // ProfileDetailsPage({
-  //    this.name,
-  //    this.jobTitle,
-  //    this.experience,
-  //   // required this.image,
-  // });
 
   @override
   Widget build(BuildContext context) {
@@ -34,68 +23,11 @@ class ProfileDetailsPage extends StatelessWidget {
               color: (Color(0xFFFE5B2A)),
             )),
       ),
-      // AppBar(
-      //   backgroundColor: ,
-      //   title: Text('Profile Details'),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {
-      //         // Navigate back to the editing page
-      //         Navigator.push(
-      //           context,
-      //           MaterialPageRoute(builder: (context) => ProfileEditingPage()),
-      //         );
-      //       },
-      //       icon: Icon(Icons.edit), // Pencil icon
-      //     ),
-      //   ],
-      // ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        // child: Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   crossAxisAlignment: CrossAxisAlignment.center,
-        //   children: <Widget>[
-        //     Stack(
-        //       alignment: Alignment.center,
-        //       children: [
-        //         CircleAvatar(
-        //           radius: 60.0,
-        //           // backgroundImage: FileImage(image), // Display the user's image
-        //         ),
-        //         Positioned(
-        //           right: 0,
-        //           bottom: 0,
-        //           child: Container(
-        //             decoration: BoxDecoration(
-        //               shape: BoxShape.circle,
-        //               color: Colors.white,
-        //             ),
-
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //     SizedBox(height: 20.0),
-        //     Text(
-        //       'Name: $name',
-        //       style: TextStyle(fontSize: 18.0),
-        //     ),
-        //     SizedBox(height: 10.0),
-        //     Text(
-        //       'Job Title: $jobTitle',
-        //       style: TextStyle(fontSize: 18.0),
-        //     ),
-        //     SizedBox(height: 10.0),
-        //     Text(
-        //       'Experience: $experience years',
-        //       style: TextStyle(fontSize: 18.0),
-        //     ),
-        //   ],
-        // ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          // children:
 
           children: <Widget>[
             const SizedBox(height: 30,),
@@ -181,20 +113,7 @@ class ProfileDetailsPage extends StatelessWidget {
                       backgroundColor:
                           const MaterialStatePropertyAll(Color(0xFFFE5B2A))),
                   onPressed: () {
-                    // Save the edited details and navigate back to the profile page
-                    // Add your save logic here
-                    // Navigator.pop(context);
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => ProfileDetailsPage(
-                    //       name: nameController.text,
-                    //       jobTitle: jobTitleController.text,
-                    //       experience: experienceController.text,
-                    //       // image: _image!,
-                    //     ),
-                    //   ),
-                    // );
+
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => ProfileEditingPage(),
                     ));

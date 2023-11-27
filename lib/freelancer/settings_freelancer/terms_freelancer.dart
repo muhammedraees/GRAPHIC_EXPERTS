@@ -25,27 +25,31 @@ class FreelancerTermsAndConditionsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            // Text(
-            //   'Freelancer Terms and Conditions',
-            //   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.grey),
-            // ),
+            Text(
+              'Terms and Conditions',
+              style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey),
+            ),
             SizedBox(height: 20),
             Text(
-              'Welcome to the Freelancer Side of the App!',
+              'Muhammed Raees built the Graphic Experts app as a Free app. This SERVICE is provided by Muhammed Raees at no cost and is intended for use as is.',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
             SizedBox(height: 10),
             Text(
-              '1. By using our app, you agree to abide by our Terms and Conditions.',
-              style: TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            Text(
-              '2. You are responsible for the accuracy of the information you provide in your profile and messages.',
+              'This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
             SizedBox(height: 20),
             Text(
-              'Please review the complete Terms and Conditions for a detailed understanding of your responsibilities and rights as a freelancer.',
+              'If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.',
+              style: TextStyle(fontSize: 16, color: Colors.grey),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at Graphic Experts unless otherwise defined in this Privacy Policy.',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
           ],

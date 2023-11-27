@@ -1,72 +1,6 @@
-// import 'package:flutter/material.dart';
-// import 'post_model_cli.dart'; // Update with correct import
-// import 'chat_req.dart'; // Update with correct import
-
-// class PostRequestsPage extends StatelessWidget {
-//   final Post post;
-
-//   PostRequestsPage({required this.post});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Requests for ${post.caption}'),
-//       ),
-//       body: FutureBuilder<List<String>>(
-//         // Assuming you have a function to fetch requests for a post
-//         future: _getRequestsForPost(post.postId),
-//         builder: (context, snapshot) {
-//           if (snapshot.connectionState == ConnectionState.waiting) {
-//             return Center(child: CircularProgressIndicator());
-//           } else if (snapshot.hasError) {
-//             return Center(child: Text('Error: ${snapshot.error}'));
-//           } else {
-//             List<String> requests = snapshot.data ?? [];
-//             return ListView.builder(
-//               itemCount: requests.length,
-//               itemBuilder: (context, index) {
-//                 String userEmail = requests[index];
-//                 return ListTile(
-//                   title: Text(userEmail),
-//                   onTap: () {
-//                     _navigateToChat(context, userEmail);
-//                   },
-//                 );
-//               },
-//             );
-//           }
-//         },
-//       ),
-//     );
-//   }
-
-//   Future<List<String>> _getRequestsForPost(String postId) async {
-//     // Implement logic to fetch requests for the specified post
-//     // You may need to store requests in a separate collection in Firestore
-//     // and fetch them based on the postId.
-//     // Replace the following line with your implementation.
-//     return ['user1@example.com', 'user2@example.com'];
-//   }
-
-//   void _navigateToChat(BuildContext context, String userEmail) {
-//     // Navigate to the chat page with the selected user
-//     Navigator.push(
-//       context,
-//       MaterialPageRoute(
-//         builder: (context) => ChatRequestPage(
-//           receiverUserEmail: userEmail,
-//           receiverUserID: userEmail, receiverUserId: '', // Assuming receiverUserID is the user's email
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-
 import 'package:flutter/material.dart';
-import 'post_model_cli.dart'; 
-import 'chat_req.dart'; 
+import 'post_model_cli.dart';
+import 'chat_req.dart';
 
 class PostRequestsPage extends StatefulWidget {
   final Post post;
@@ -83,7 +17,7 @@ class _PostRequestsPageState extends State<PostRequestsPage> {
   @override
   void initState() {
     super.initState();
-    requests = []; 
+    requests = [];
     _loadRequests();
   }
 
@@ -106,8 +40,7 @@ class _PostRequestsPageState extends State<PostRequestsPage> {
         centerTitle: true,
         title: Text(
           'Requests for ${widget.post.caption}',
-          style: const TextStyle(
-              color: Colors.white), 
+          style: const TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           onPressed: () {
@@ -119,7 +52,7 @@ class _PostRequestsPageState extends State<PostRequestsPage> {
           ),
         ),
       ),
-      body: requests.isEmpty 
+      body: requests.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
               itemCount: requests.length,
@@ -128,8 +61,7 @@ class _PostRequestsPageState extends State<PostRequestsPage> {
                 return ListTile(
                   title: Text(
                     userEmail,
-                    style:
-                        greyTextStyle, 
+                    style: greyTextStyle,
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,

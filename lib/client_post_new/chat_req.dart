@@ -1,6 +1,3 @@
-
-
-// loading working code
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,7 +8,8 @@ class ChatRequestPage extends StatefulWidget {
 
   ChatRequestPage({
     required this.receiverUserId,
-    required this.receiverUserEmail, required String receiverUserID,
+    required this.receiverUserEmail,
+    required String receiverUserID,
   });
 
   @override
@@ -62,13 +60,10 @@ class _ChatRequestPageState extends State<ChatRequestPage> {
           'message': messageController.text,
           'timestamp': FieldValue.serverTimestamp(),
         });
-        Navigator.pop(
-            context); // Close the Chat Request Page after sending the request.
+        Navigator.pop(context);
       }
     }
   }
-
-  // Rest of your code...
 
   @override
   Widget build(BuildContext context) {
@@ -133,7 +128,8 @@ class _ChatRequestPageState extends State<ChatRequestPage> {
                             controller: messageController,
                             decoration: const InputDecoration(
                               hintText: 'Type request...',
-                              contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 16.0),
                               border: InputBorder.none,
                             ),
                           ),
@@ -157,17 +153,16 @@ class _ChatRequestPageState extends State<ChatRequestPage> {
       ),
     );
   }
+
   Stream<QuerySnapshot> getChatStream() {
     final currentUser = _auth.currentUser;
     if (currentUser != null) {
       String currentUserId = currentUser.uid;
 
-      // Create a Chat Room ID to identify the conversation
       List<String> userIds = [currentUserId, widget.receiverUserId];
       userIds.sort();
       String chatRoomId = userIds.join("_");
 
-      // Retrieve chat messages specific to this conversation
       return FirebaseFirestore.instance
           .collection('chat_rooms')
           .doc(chatRoomId)
@@ -175,10 +170,7 @@ class _ChatRequestPageState extends State<ChatRequestPage> {
           .orderBy('timestamp', descending: true)
           .snapshots();
     } else {
-      // Handle the case where the user is not signed in
       return const Stream.empty();
     }
   }
-
-  // Rest of your code...
 }

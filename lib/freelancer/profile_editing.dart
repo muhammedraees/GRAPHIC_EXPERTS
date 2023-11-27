@@ -1,11 +1,6 @@
-// import 'dart:developer';
-
 import 'package:flutter/material.dart';
-// import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
-
-// import 'profile_details.dart';
 
 class ProfileEditingPage extends StatefulWidget {
   @override
@@ -13,34 +8,12 @@ class ProfileEditingPage extends StatefulWidget {
 }
 
 class _ProfileEditingPageState extends State<ProfileEditingPage> {
-
-// uploadData()async{
-
-//   Map<String, dynamic> uploaddata={
-//     "UserName":usernameController.text,
-//     "Job Type":jobtypeController.text,
-//     "Experience":experienceController.text,
-//     "Skills":skillsController.text,
-//     "Link":linkController.text,
-//   };
-
-//   Fluttertoast.showToast(
-//         msg: "Profile Updated Successfully",
-//         toastLength: Toast.LENGTH_SHORT,
-//         gravity: ToastGravity.CENTER,
-//         timeInSecForIosWeb: 1,
-//         backgroundColor: Colors.red,
-//         textColor: Colors.white,
-//         fontSize: 16.0
-//     );
-// }
-
-  TextEditingController usernameController= TextEditingController();
+  TextEditingController usernameController = TextEditingController();
   TextEditingController jobtypeController = TextEditingController();
   TextEditingController experienceController = TextEditingController();
   TextEditingController skillsController = TextEditingController();
   TextEditingController linkController = TextEditingController();
-  File? _image; 
+  File? _image;
 
   Future<void> _getImage() async {
     final picker = ImagePicker();
@@ -126,19 +99,6 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
                     border: InputBorder.none,
                     hintStyle: TextStyle(color: Colors.white)),
               ),
-              // DropdownButton(
-              //   hint: Text(
-              //     'Job type',
-              //     style: TextStyle(color: Colors.white),
-              //   ),
-              //   underline: SizedBox(),
-              //   items: [
-              //     DropdownMenuItem(value: 'A', child: Text('A')),
-              //     DropdownMenuItem(value: 'A', child: Text('A')),
-              //     DropdownMenuItem(value: 'A', child: Text('A'))
-              //   ],
-              //   onChanged: (value) {},
-              // ),
               const SizedBox(height: 16),
               TextFormField(
                 controller: experienceController,
@@ -156,7 +116,6 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
                     border: InputBorder.none,
                     hintStyle: TextStyle(color: Colors.white)),
               ),
-
               const SizedBox(height: 16),
               TextFormField(
                 controller: linkController,
@@ -179,17 +138,6 @@ class _ProfileEditingPageState extends State<ProfileEditingPage> {
                         backgroundColor:
                             const MaterialStatePropertyAll(Color(0xFFFE5B2A))),
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => ProfileDetailsPage(
-                      //       name: nameController.text,
-                      //       jobTitle: jobTitleController.text,
-                      //       experience: experienceController.text,
-                      //       // image: _image!,
-                      //     ),
-                      //   ),
-                      // );
                       Navigator.pop(context);
                     },
                     child: const Text(

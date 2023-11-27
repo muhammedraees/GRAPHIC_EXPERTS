@@ -2,8 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../client_post_new/post_listing_cli.dart';
 import '../client_post_new/req_status.dart';
-import '../freelancer/home_page.dart';
-import '../freelancer/profile_save.dart';
+// import '../freelancer/profile_save.dart';
 import '../freelancer/profile_create.dart';
 import '../freelancer/settings_freelancer/about_freelancer.dart';
 import '../freelancer/settings_freelancer/policy_freelancer.dart';
@@ -46,27 +45,31 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const SendOrUpdateData(id: '',)),
+                MaterialPageRoute(
+                    builder: (context) => const SendOrUpdateData(
+                          id: '',
+                        )),
               );
             },
-          ),ListTile(
-            leading: const Icon(
-              Icons.edit,
-              color: Color(0xFFFE5B2A),
-            ),
-            title: const Text(
-              'Edit profile',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            onTap: () {
-               Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ProfileEdit()),
-                  );
-            },
           ),
+          // ListTile(
+          //   leading: const Icon(
+          //     Icons.edit,
+          //     color: Color(0xFFFE5B2A),
+          //   ),
+          //   title: const Text(
+          //     'Edit profile',
+          //     style: TextStyle(
+          //       color: Colors.white,
+          //     ),
+          //   ),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => const ProfileEdit()),
+          //     );
+          //   },
+          // ),
           ListTile(
             leading: const Icon(
               Icons.share,
@@ -79,12 +82,7 @@ class SettingsPage extends StatelessWidget {
               ),
             ),
             // HomePage
-            onTap: () {
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
-            },
+            onTap: () {},
           ),
           ListTile(
             leading: const Icon(
@@ -99,9 +97,9 @@ class SettingsPage extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => UserPostsPage()),
-                  );
+                context,
+                MaterialPageRoute(builder: (context) => UserPostsPage()),
+              );
             },
           ),
           ListTile(
@@ -117,11 +115,12 @@ class SettingsPage extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => UserRequestsPage(userId: 'your_user_id_here'),
-      ),
-    );
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      UserRequestsPage(userId: 'your_user_id_here'),
+                ),
+              );
             },
           ),
           ListTile(
@@ -134,9 +133,10 @@ class SettingsPage extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => FreelancerTermsAndConditionsPage()),
-                  );
+                context,
+                MaterialPageRoute(
+                    builder: (context) => FreelancerTermsAndConditionsPage()),
+              );
             },
           ),
           ListTile(
@@ -149,9 +149,10 @@ class SettingsPage extends StatelessWidget {
             ),
             onTap: () {
               Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => FreelancerPrivacyPolicyPage()),
-                  );
+                context,
+                MaterialPageRoute(
+                    builder: (context) => FreelancerPrivacyPolicyPage()),
+              );
             },
           ),
           ListTile(
@@ -165,77 +166,7 @@ class SettingsPage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => AboutPage()),
-              );
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.logout, color: Color(0xFFFE5B2A)),
-            title: const Text(
-              'Log Out',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            // onTap: () {
-            //   // Navigator.push(
-            //   //   context,
-            //   //   MaterialPageRoute(builder: (context) => LogOut()),
-            //   // );
-            //   FirebaseAuth.instance.signOut();
-            //   Navigator.pushNamed(context, "/login");
-            // },
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
-                    backgroundColor: const Color.fromARGB(255, 32, 32,
-                        31), 
-                    title: const Text(
-                      "Confirm Logout",
-                      style: TextStyle(
-                          color: Colors.white), 
-                    ),
-                    content: const Text(
-                      "Are you sure you want to log out ?",
-                      style: TextStyle(
-                          color: Colors.white), 
-                    ),
-                    actions: <Widget>[
-                      TextButton(
-                        style: TextButton.styleFrom(
-                        
-                            ),
-                        child: const Text(
-                          "Cancel",
-                          style: TextStyle(
-                              color: Colors
-                                  .grey), 
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).pop(); 
-                        },
-                      ),
-                      TextButton(
-                        style: TextButton.styleFrom(
-                          
-                            ),
-                        child: const Text(
-                          "Yes",
-                          style: TextStyle(
-                              color: Color(
-                                  0xFFFE5B2A)),
-                        ),
-                        onPressed: () {
-                          FirebaseAuth.instance.signOut();
-                          Navigator.pushNamed(context, "/login");
-                        },
-                      ),
-                    ],
-                  );
-                },
+                MaterialPageRoute(builder: (context) => AboutPage()),
               );
             },
           ),
@@ -244,4 +175,3 @@ class SettingsPage extends StatelessWidget {
     );
   }
 }
-

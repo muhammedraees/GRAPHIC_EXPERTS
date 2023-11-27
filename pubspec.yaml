@@ -78,9 +78,6 @@ flutter:
     - assets/lotti/connect_eachother.json
     - assets/lotti/find_people.json
     - assets/lotti/freelancer.json
-    - assets/images/freelancer_onboarding.png
-    - assets/images/connect_onboarding.jpg
-    - assets/images/job-offer-onboarding.jpg
     - assets/lotti/find_freelancer.json
     - assets/lotti/find_freelancer2.json
 

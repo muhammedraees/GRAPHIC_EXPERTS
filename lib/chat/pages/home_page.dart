@@ -60,25 +60,7 @@ class _ChatHomePageState extends State<ChatHomePage> {
           );
         });
   }
-  // Widget _buildUserListItem(DocumentSnapshot document){
-  //   Map<String,dynamic> data = document.data()! as Map<String,dynamic>;
 
-  //   if(_auth.currentUser!.email != data['email']){
-  //     return ListTile(
-  //       title: Text(data['email']),
-  //       onTap: (){
-  //         Navigator.push(context,
-  //         MaterialPageRoute(builder: (context)=>ChatPage(
-  //           receiverUserEmail: data['email'],
-  //           receiverUserID: data['uid'],
-  //         ),)
-  //         );
-  //       },
-  //     );
-  //   }else{
-  //     return Container();
-  //   }
-  // }
   Widget _buildUserListItem(DocumentSnapshot document) {
     Map<String, dynamic>? data = document.data() as Map<String, dynamic>?;
 
@@ -92,7 +74,8 @@ class _ChatHomePageState extends State<ChatHomePage> {
             ListTile(
               title: Text(
                 userEmail,
-                style: const TextStyle(color: Colors.grey), // Set text color to grey
+                style: const TextStyle(
+                    color: Colors.grey), // Set text color to grey
               ),
               onTap: () {
                 Navigator.push(
